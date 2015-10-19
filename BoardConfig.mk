@@ -152,9 +152,6 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Power
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
-
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
