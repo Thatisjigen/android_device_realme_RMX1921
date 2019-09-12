@@ -6,6 +6,9 @@
 
 COMMON_PATH := device/xiaomi/sdm710-common
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
