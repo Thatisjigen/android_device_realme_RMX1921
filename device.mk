@@ -335,6 +335,10 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
 
+# Realme specific packages
+PRODUCT_PACKAGES += \
+    RealmeParts
+
 # RIL
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
