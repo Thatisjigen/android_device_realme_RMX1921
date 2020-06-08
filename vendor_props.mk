@@ -166,11 +166,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.sensortype=2 \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
 
+# Phase offsets
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-   ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
-   ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
-   debug.sf.early_phase_offset_ns=11600000 \
-   debug.sf.early_app_phase_offset_ns=11600000 \
-   debug.sf.early_gl_phase_offset_ns=3000000 \
-   debug.sf.early_gl_app_phase_offset_ns=15000000 \
-   debug.sf.phase_offset_threshold_for_next_vsync_ns=11600000
+    debug.sf.use_phase_offsets_as_durations=1 \
+    debug.sf.late.sf.duration=10500000 \
+    debug.sf.late.app.duration=20500000 \
+    debug.sf.early.sf.duration=21000000 \
+    debug.sf.early.app.duration=16500000 \
+    debug.sf.earlyGl.sf.duration=13500000 \
+    debug.sf.earlyGl.app.duration=21000000
