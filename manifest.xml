@@ -167,6 +167,11 @@
         <fqname>@1.0::INxpNfc/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.oppo.hardware.biometrics.fingerprint</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::IBiometricsFingerprint/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.data.factory</name>
         <transport>hwbinder</transport>
         <fqname>@2.1::IFactory/default</fqname>
