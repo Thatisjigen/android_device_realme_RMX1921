@@ -30,13 +30,23 @@ public class DozeService extends Service {
     private static final boolean DEBUG = false;
 
     private ProximitySensor mProximitySensor;
-    private TiltSensor mTiltSensor;
+    private PickupSensor mPickupSensor;
+    private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+                onDisplayOn();
+            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+                onDisplayOff();
+            }
+        }
+    };
 
     @Override
     public void onCreate() {
         if (DEBUG) Log.d(TAG, "Creating service");
         mProximitySensor = new ProximitySensor(this);
-        mTiltSensor = new TiltSensor(this);
+        mPickupSensor = new PickupSensor(this);
 
         IntentFilter screenStateFilter = new IntentFilter();
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON);
@@ -56,7 +66,7 @@ public class DozeService extends Service {
         super.onDestroy();
         this.unregisterReceiver(mScreenStateReceiver);
         mProximitySensor.disable();
-        mTiltSensor.disable();
+        mPickupSensor.disable();
     }
 
     @Override
@@ -67,10 +77,9 @@ public class DozeService extends Service {
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
         if (DozeUtils.isPickUpEnabled(this)) {
-            mTiltSensor.disable();
+            mPickupSensor.disable();
         }
-        if (DozeUtils.isHandwaveGestureEnabled(this) ||
-                DozeUtils.isPocketGestureEnabled(this)) {
+        if (DozeUtils.isPocketGestureEnabled(this)) {
             mProximitySensor.disable();
         }
     }
@@ -78,22 +87,10 @@ public class DozeService extends Service {
     private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
         if (DozeUtils.isPickUpEnabled(this)) {
-            mTiltSensor.enable();
+            mPickupSensor.enable();
         }
-        if (DozeUtils.isHandwaveGestureEnabled(this) ||
-                DozeUtils.isPocketGestureEnabled(this)) {
+        if (DozeUtils.isPocketGestureEnabled(this)) {
             mProximitySensor.enable();
         }
     }
-
-    private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                onDisplayOn();
-            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                onDisplayOff();
-            }
-        }
-    };
 }
