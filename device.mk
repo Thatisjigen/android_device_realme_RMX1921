@@ -337,7 +337,8 @@ PRODUCT_PACKAGES += \
 
 # Realme specific packages
 PRODUCT_PACKAGES += \
-    RealmeParts
+    RealmeParts \
+    RealmeDoze
 
 # RIL
 PRODUCT_PACKAGES += \
