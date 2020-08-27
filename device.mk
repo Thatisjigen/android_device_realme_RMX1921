@@ -307,7 +307,7 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
--include $(LOCAL_PATH)/vendor_prop.mk
+-include $(LOCAL_PATH)/vendor_props.mk
 
 # QTI
 PRODUCT_PACKAGES += \
