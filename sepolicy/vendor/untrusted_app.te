@@ -1,0 +1,6 @@
+allow untrusted_app persist_camera_prop:file { open getattr map };
+allow untrusted_app vendor_default_prop:file { open getattr map };
+allow untrusted_app vendor_camera_prop:file { open getattr map };
+allow untrusted_app vendor_camera_prop:file read;
+allow untrusted_app persist_camera_prop:file read;
+allow untrusted_app vendor_default_prop:file read;
