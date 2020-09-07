@@ -1,3 +1,6 @@
+#AnxCam
+ro.product.vendor.device=RMX1921
+
 # Audio
 audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30

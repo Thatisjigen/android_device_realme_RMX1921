@@ -1,3 +1,7 @@
+#AnxCam
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.vendor.device=RMX1921
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
