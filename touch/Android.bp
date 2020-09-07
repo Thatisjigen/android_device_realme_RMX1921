@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.RMX1921",
-    init_rc: ["vendor.lineage.touch@1.0-service.RMX1921.rc"],
-    vintf_fragments: ["vendor.lineage.touch@1.0-service.RMX1921.xml"],
+    name: "vendor.lineage.touch@1.0-service.xt",
+    init_rc: ["vendor.lineage.touch@1.0-service.xt.rc"],
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.xt.xml"],
     defaults: ["hidl_defaults"],
     proprietary: true,
     relative_install_path: "hw",

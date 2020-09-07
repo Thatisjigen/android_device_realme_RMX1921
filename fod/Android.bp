@@ -14,13 +14,15 @@
 // limitations under the License.
 
 cc_binary {
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xt",
     relative_install_path: "hw",
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xt.rc"],
     defaults: ["hidl_defaults"],
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.realme_sdm710.xml"],
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.realme_sdm710",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.realme_sdm710.rc"],
-    srcs: ["service.cpp", "FingerprintInscreen.cpp"],
-    proprietary: true,
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xt.xml"],
+    srcs: [
+        "service.cpp",
+        "FingerprintInscreen.cpp",
+    ],
     shared_libs: [
         "libbase",
         "libhardware",
@@ -31,10 +33,11 @@ cc_binary {
         "libutils",
         "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
     ],
+    vendor: true,
 }
 
 cc_library_static {
-    name: "libfod_extension.RMX1921",
+    name: "libfod_extension.xt",
     srcs: ["FodExtension.cpp"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"
