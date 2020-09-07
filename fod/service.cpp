@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.realme_sdm710"
+#define LOG_TAG "lineage.biometrics.fingerprint.inscreen@1.0-service.xt"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>

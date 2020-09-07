@@ -1,5 +1,5 @@
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl.realme_sdm710",
+    name: "android.hardware.sensors@1.0-impl.xt",
     defaults: ["hidl_defaults"],
     proprietary: true,
     relative_install_path: "hw",
@@ -16,12 +16,12 @@ cc_library_shared {
     ],
     static_libs: [
         "android.hardware.sensors@1.0-convert",
-        "multihal_realme_sdm710",
+        "multihal_xt",
     ],
 }
 
 cc_library_static {
-    name: "multihal_realme_sdm710",
+    name: "multihal_xt",
     proprietary: true,
     srcs: [
         "multihal.cpp",

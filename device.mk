@@ -127,8 +127,8 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.realme_sdm710 \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.realme_sdm710 \
+    android.hardware.biometrics.fingerprint@2.1-service.xt \
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xt \
     vendor.oppo.hardware.biometrics.fingerprint@2.1
 
 PRODUCT_COPY_FILES += \
@@ -187,7 +187,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.realme_sdm710
+    android.hardware.light@2.0-service.xt
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -367,7 +367,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl.realme_sdm710 \
+    android.hardware.sensors@1.0-impl.xt \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
 
@@ -400,7 +400,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.RMX1921
+    vendor.lineage.touch@1.0-service.xt
     
 # Trust HAL
 PRODUCT_PACKAGES += \

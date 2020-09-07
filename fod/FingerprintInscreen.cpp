@@ -24,16 +24,16 @@
 #include <thread>
 
 /* Hardcoded stuffs */
-#define FP_PRESS_PATH "/sys/kernel/oppo_display/notify_fppress"
-#define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_hbm"
+#define PRESSED "/sys/kernel/oppo_display/notify_fppress"
 #define NOTIFY_BLANK_PATH "/sys/kernel/oppo_display/notify_panel_blank"
 #define AOD_MODE_PATH "/sys/kernel/oppo_display/aod_light_mode_set"
 #define DOZE_STATUS "/proc/touchpanel/DOZE_STATUS"
-#define X_POS 442
-#define Y_POS 1969
-#define FP_SIZE 196
-#define FP_BEGIN 1
-#define FP_ENDIT 0
+#define DIMLAYER "/sys/kernel/oppo_display/dimlayer_hbm"
+#define X 442
+#define Y 1969
+#define SIZE 196
+#define ON 1
+#define OFF 0
 
 namespace {
 
@@ -63,19 +63,19 @@ namespace inscreen {
 namespace V1_0 {
 namespace implementation {
 
-FingerprintInscreen::FingerprintInscreen():isDreamState{false}{
+FingerprintInscreen::FingerprintInscreen():mFingerPressed{false} {
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
-    return X_POS;
+    return X;
 }
 
 Return<int32_t> FingerprintInscreen::getPositionY() {
-    return Y_POS;
+    return Y;
 }
 
 Return<int32_t> FingerprintInscreen::getSize() {
-    return FP_SIZE;
+    return SIZE;
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
@@ -87,42 +87,33 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    if(isDreamState){
-    set(DIMLAYER_PATH, FP_BEGIN);
+    mFingerPressed = true;
+    set(DIMLAYER, ON);
     std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(60));
-        if (isDreamState) {
-            set(FP_PRESS_PATH, FP_BEGIN);
+        std::this_thread::sleep_for(std::chrono::milliseconds(39));
+        if (mFingerPressed) {
+            set(PRESSED, ON);
         }
     }).detach();
-    } else {
-    set(FP_PRESS_PATH, FP_BEGIN);
-    }
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    set(FP_PRESS_PATH, FP_ENDIT);
-    if(isDreamState)
-    set(DIMLAYER_PATH, FP_ENDIT);
+    mFingerPressed = false;
+    set(PRESSED, OFF);
+    set(DIMLAYER, OFF);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    if(get(DOZE_STATUS, FP_ENDIT)) {
-    isDreamState = true;
-    set(NOTIFY_BLANK_PATH, FP_BEGIN);
-    set(AOD_MODE_PATH, FP_BEGIN);
-    } else {
-    isDreamState = false;
-    set(DIMLAYER_PATH, FP_BEGIN);
+    if(get(DOZE_STATUS, OFF)) {
+    set(NOTIFY_BLANK_PATH, ON);
+    set(AOD_MODE_PATH, ON);
     }
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    if(!isDreamState)
-    set(DIMLAYER_PATH, FP_ENDIT);
     return Void();
 }
 
@@ -139,7 +130,7 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
 }
 
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t /* brightness */) {
-    return 0;
+    return 0; 
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
