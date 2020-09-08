@@ -6,3 +6,6 @@ allow system_app sysfs_usb_supply:dir search;
 
 allow system_app sysfs_battery_supply:dir search;
 allow system_app sysfs_battery_supply:file { getattr open read };
+allow system_app proc_touchpanel:file write;
+allow system_app vendor_default_prop:file { getattr open };
+allow system_app vendor_default_prop:file {map};
