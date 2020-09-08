@@ -29,9 +29,9 @@
 #define AOD_MODE_PATH "/sys/kernel/oppo_display/aod_light_mode_set"
 #define DOZE_STATUS "/proc/touchpanel/DOZE_STATUS"
 #define DIMLAYER "/sys/kernel/oppo_display/dimlayer_hbm"
-#define X 442
-#define Y 1969
-#define SIZE 196
+#define X 445
+#define Y 1988
+#define SIZE 190
 #define ON 1
 #define OFF 0
 
