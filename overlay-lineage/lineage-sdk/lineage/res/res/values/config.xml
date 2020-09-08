@@ -18,6 +18,9 @@
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
 
+    <!-- Show a custom view for FOD -->
+    <bool name="config_needCustomFODView">true</bool>
+
     <!-- Whether device has screen with higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
 </resources>
