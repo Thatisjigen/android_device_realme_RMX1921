@@ -29,9 +29,9 @@
 #define NOTIFY_BLANK_PATH "/sys/kernel/oppo_display/notify_panel_blank"
 #define AOD_MODE_PATH "/sys/kernel/oppo_display/aod_light_mode_set"
 #define DOZE_STATUS "/proc/touchpanel/DOZE_STATUS"
-#define X_POS 442
-#define Y_POS 1969
-#define FP_SIZE 196
+#define X_POS 445
+#define Y_POS 1988
+#define FP_SIZE 190
 #define FP_BEGIN 1
 #define FP_ENDIT 0
 
