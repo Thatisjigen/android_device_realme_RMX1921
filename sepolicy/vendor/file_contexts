@@ -84,7 +84,7 @@
 /sys/module/cpu_input_boost/parameters/input_boost_freq_little                      u:object_r:sysfs_iboostfreq:s0
 
 # Power
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.2-service-qti                                  u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.xt-libperfmgr               u:object_r:hal_power_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock                     u:object_r:hal_power_stats_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.qti                     u:object_r:hal_thermal_default_exec:s0
 /sys/class/power_supply/battery/mmi_charging_enable                    u:object_r:sysfs_scharge:s0
