@@ -131,6 +131,10 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.7 \
     vendor.qti.hardware.display.allocator@1.0-service
 
+# DPM
+PRODUCT_PACKAGES += \
+    libshim_dpmframework
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
