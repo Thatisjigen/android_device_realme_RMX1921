@@ -96,7 +96,9 @@ TARGET_SCREEN_WIDTH := 1080
 # Binder
 PRODUCT_PACKAGES += \
     libhwbinder \
-    libhwbinder.vendor
+    libhwbinder.vendor \
+    libhidltransport \
+    libhidltransport.vendor
 
 # Camera
 PRODUCT_PACKAGES += \
