@@ -43,3 +43,22 @@ cc_library_static {
     ],
 }
 
+cc_binary {
+    name: "android.hardware.sensors@1.0-service.xt",
+    relative_install_path: "hw",
+    vendor: true,
+    init_rc: ["android.hardware.sensors@1.0-service.xt.rc"],
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhidlbase",
+        "libhidltransport",
+        "android.hardware.sensors@1.0",
+        "libhwbinder",
+    ],
+}
