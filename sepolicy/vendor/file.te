@@ -60,3 +60,6 @@ type sysfs_iboostfreq, sysfs_type, fs_type;
 
 type proc_vibration_file, sysfs_type, fs_type;
 type sysfs_io_sched_tuneable, fs_type, sysfs_type;
+
+# Kernelspace Batter saver
+type sysfs_battery_saver, fs_type, sysfs_type;
