@@ -139,7 +139,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610 \
     debug.sf.enable_hwc_vds=1 \
     dev.pm.dyn_samplingrate=1 \
-    persist.front.skipdisplay.enable=1
+    persist.front.skipdisplay.enable=1 \
+    ro.hardware.egl=adreno \
+    ro.hardware.vulkan=adreno
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
