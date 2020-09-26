@@ -631,4 +631,7 @@
 
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
+
+    <!-- Device have a fod sensor -->
+    <bool name="config_supportsInDisplayFingerprint">true</bool>
 </resources>
