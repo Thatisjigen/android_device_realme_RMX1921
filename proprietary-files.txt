@@ -559,7 +559,7 @@ vendor/firmware/dpAP_full.mbn
 vendor/firmware/dpAP_mini.mbn
 
 # DPM
-product/bin/dpmd
+product/bin/dpmd|90cdd79b564456cef2a0c011afab3896463df5e4
 product/etc/dpm/dpm.conf
 product/etc/init/dpmd.rc
 product/etc/permissions/com.qti.dpmframework.xml
@@ -863,7 +863,7 @@ product/lib/vendor.qti.ims.callinfo@1.0.so
 product/lib/vendor.qti.ims.rcsconfig@1.0.so
 product/lib/vendor.qti.imsrtpservice@2.0.so
 product/lib/vendor.qti.imsrtpservice@2.1.so
--product/priv-app/ims/ims.apk|d2e0d617c6c8adcbcecd7d2c29d939081796b2fd
+-product/priv-app/ims/ims.apk|7aff4613e75dfe90363409cf649e2a3e09469921
 product/lib/libdiag_system.so
 product/lib64/libdiag_system.so
 vendor/bin/ims_rtp_daemon
@@ -1209,6 +1209,7 @@ product/etc/permissions/qcrilhook.xml
 product/etc/permissions/telephonyservice.xml
 product/framework/qcrilhook.jar|3afd31d5a08e220904441d5c8c0bcf43b8ebbbfe
 product/framework/QtiTelephonyServicelibrary.jar
+product/framework/qti-telephony-common.jar|14e32b1cb0fdc9d7802414e95e41376499b51b11
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|c59fcb4a375dec19a0208dcfcc4696e0ccfd3a13
 -vendor/app/IWlanService/IWlanService.apk
 vendor/bin/hw/qcrild
