@@ -43,6 +43,13 @@
             android:summary="@string/pick_up_gesture_summary"
             android:title="@string/pick_up_gesture_title" />
 
+        <SwitchPreference
+            android:icon="@drawable/ic_doze_smart_wake"
+            android:defaultValue="false"
+            android:key="gesture_smart_wake"
+            android:summary="@string/smart_wake_gesture_summary"
+            android:title="@string/smart_wake_gesture_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

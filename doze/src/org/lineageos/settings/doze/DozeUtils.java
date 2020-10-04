@@ -40,6 +40,7 @@ public final class DozeUtils {
     protected static final String GESTURE_RAISE_TO_WAKE_KEY = "gesture_raise_to_wake";
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
     protected static final String GESTURE_RAISE_TO_WAKE = "gesture_raise_to_wake";
+    protected static final String GESTURE_SMART_WAKE_KEY = "gesture_smart_wake";
     private static final String TAG = "DozeUtils";
     private static final boolean DEBUG = false;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
@@ -113,6 +114,10 @@ public final class DozeUtils {
 
     protected static boolean isPocketGestureEnabled(Context context) {
         return isGestureEnabled(context, GESTURE_POCKET_KEY);
+    }
+
+    protected static boolean isSmartWakeEnabled(Context context) {
+        return isGestureEnabled(context, GESTURE_SMART_WAKE_KEY);
     }
 
     public static boolean sensorsEnabled(Context context) {

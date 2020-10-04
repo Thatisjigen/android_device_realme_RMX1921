@@ -65,6 +65,10 @@
     <string name="proximity_wake_title">Proximity wake</string>
     <string name="proximity_wake_enable_title">Proximity wake</string>
 
+    <!-- Smart wake strings-->
+    <string name="smart_wake_gesture_title">Smart Wake</string>
+    <string name="smart_wake_gesture_summary">Pulse notifications on slight motion of device and wake screen when picked up</string>
+
     <!-- Dialog texts -->
     <string name="dialog_ok">OK</string>
 
