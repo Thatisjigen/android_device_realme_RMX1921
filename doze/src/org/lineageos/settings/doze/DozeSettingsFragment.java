@@ -50,6 +50,7 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     private SwitchPreference mAlwaysOnDisplayPreference;
 
     private SwitchPreference mPickUpPreference;
+    private SwitchPreference mRaiseToWakePreference;
     private SwitchPreference mPocketPreference;
 
     private Handler mHandler = new Handler();
@@ -78,9 +79,16 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         PreferenceCategory proximitySensorCategory = (PreferenceCategory) getPreferenceScreen().
                 findPreference(DozeUtils.CATEG_PROX_SENSOR);
 
+        SwitchPreference raiseToWakeGesture = (SwitchPreference) getPreferenceScreen().
+                findPreference(DozeUtils.GESTURE_RAISE_TO_WAKE);
+
         mPickUpPreference = (SwitchPreference) findPreference(DozeUtils.GESTURE_PICK_UP_KEY);
         mPickUpPreference.setEnabled(dozeEnabled);
         mPickUpPreference.setOnPreferenceChangeListener(this);
+
+        mRaiseToWakePreference = (SwitchPreference) findPreference(DozeUtils.GESTURE_RAISE_TO_WAKE_KEY);
+        mRaiseToWakePreference.setEnabled(dozeEnabled);
+        mRaiseToWakePreference.setOnPreferenceChangeListener(this);
 
         mPocketPreference = (SwitchPreference) findPreference(DozeUtils.GESTURE_POCKET_KEY);
         mPocketPreference.setEnabled(dozeEnabled);
@@ -90,8 +98,10 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         if (!DozeUtils.alwaysOnDisplayAvailable(getActivity())) {
             getPreferenceScreen().removePreference(mAlwaysOnDisplayPreference);
         } else {
+            mPickUpPreference.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
             pickupSensorCategory.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
             proximitySensorCategory.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
+            raiseToWakeGesture.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
         }
     }
 
@@ -151,6 +161,7 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mAlwaysOnDisplayPreference.setEnabled(isChecked);
 
         mPickUpPreference.setEnabled(isChecked);
+        mRaiseToWakePreference.setEnabled(isChecked);
         mPocketPreference.setEnabled(isChecked);
     }
 
