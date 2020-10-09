@@ -34,7 +34,7 @@ public class InfraredSensor implements SensorEventListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "InfraredSensor";
     private static final int SENSORID = 33171005; //stk_st2x2x
-    private static final int MASK_TIME = 150;
+
     private static final String PS_STATUS = "/proc/touchpanel/fd_enable";
     private static final String PS_MASK = "/proc/touchpanel/prox_mask";
 
@@ -56,15 +56,14 @@ public class InfraredSensor implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         /* if we are here this means sensor live and is being used */
         sensorAlive = true;
-        if (event.values[0] < 5.0f) {
+        if (event.values[0] == 0.0f) {
             /* We don't need to do anything since the sensor is near */
-            if (DEBUG) Log.d(TAG, "Near detected, Sending same in 50ms");
-            (new Handler()).postDelayed(this::sendNear, MASK_TIME-100);
+            if (DEBUG) Log.d(TAG, "Exiting since near the sensor");    
             return;
         }
         /* Let's do stuff ? */
-        if (DEBUG) Log.d(TAG, "Sending proximity far event in 150");
-        (new Handler()).postDelayed(this::sendFar, MASK_TIME);
+        if (DEBUG) Log.d(TAG, "Sending proximity far event in 150ms");
+        (new Handler()).postDelayed(this::sendFar, 150);
     }
 
     @Override
@@ -99,10 +98,4 @@ public class InfraredSensor implements SensorEventListener {
        if (DEBUG) Log.d(TAG, "Sent far event to Proximity mask node");
        FileHelper.writeValue(PS_MASK, "1");
    }
-
-   /* Set proximity status as near */
-   void sendNear() {
-       if (DEBUG) Log.d(TAG, "Sent near event to proximity mask node");
-       FileHelper.writeValue(PS_MASK, "0");
-    }
 }
