@@ -1,4 +1,4 @@
-allow priv_app persist_camera_prop:file { open getattr map read };
+allow priv_app vendor_persist_camera_prop:file { open getattr map read };
 allow priv_app vendor_default_prop:file { open getattr map read };
 allow priv_app vendor_camera_prop:file { open getattr map read };
 allow priv_app adsprpcd_file:filesystem getattr;
