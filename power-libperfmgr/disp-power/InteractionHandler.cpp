@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power@-service.pixel-libperfmgr"
+#define LOG_TAG "android.hardware.power@-service.xt-libperfmgr"
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
 
 #include <fcntl.h>
@@ -33,8 +33,7 @@
 #define MSINSEC 1000L
 #define USINMS 1000000L
 
-static const std::vector<std::string> fb_idle_patch = {"/sys/class/drm/card0/device/idle_state",
-                                                       "/sys/class/graphics/fb0/idle_state"};
+static const std::vector<std::string> fb_idle_patch = {"/sys/class/drm/card0/device/idle_state"};
 
 InteractionHandler::InteractionHandler(std::shared_ptr<HintManager> const &hint_manager)
     : mState(INTERACTION_STATE_UNINITIALIZED),
