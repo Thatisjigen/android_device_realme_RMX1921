@@ -147,11 +147,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
-# Doze
+# GalaxyParts
 PRODUCT_PACKAGES += \
-    devicesettings \
     RealmeDoze \
-    RealmeProximityHelper
+    RealmeProximityHelper \
+    GalaxyParts
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -382,9 +382,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.class_main.sh \
-    init.devicesetting.rc \
     init.oppo.reserve.rc \
     init.msm.usb.configfs.rc \
+    init.GalaxyParts.sh \
     init.oppo.fingerprints.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -395,6 +395,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
     init.target.rc \
+    init.GalaxyParts.rc \
     ueventd.qcom.rc
 
 # Recovery
@@ -446,7 +447,7 @@ PRODUCT_PACKAGES += \
 # Touch
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.xt
-    
+
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
@@ -479,7 +480,6 @@ PRODUCT_PACKAGES += \
 
 #PRODUCT_BOOT_JARS += \
 #    WfdCommon
-
 
 # Wlan
 PRODUCT_PACKAGES += \
