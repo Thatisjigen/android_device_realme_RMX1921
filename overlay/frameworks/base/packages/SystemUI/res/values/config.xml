@@ -58,4 +58,7 @@
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">false</bool>
 
+    <string name="proximity_sensor_secondary_type" translatable="false">qti.sensor.proximity_fake</string>
+    <item name="proximity_sensor_secondary_threshold" translatable="false" format="float"
+          type="dimen">4.99</item>
 </resources>
