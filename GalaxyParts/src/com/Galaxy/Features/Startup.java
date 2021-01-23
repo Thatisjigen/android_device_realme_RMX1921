@@ -65,6 +65,10 @@ public class Startup extends BroadcastReceiver {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences (context);
         enabled = sharedPrefs.getBoolean (GalaxyParts.KEY_GAME_SWITCH, false);
         restore (GameModeSwitch.getFile ( ), enabled);
+        enabled = sharedPrefs.getBoolean(GalaxyParts.PREF_KEY_FPS_INFO, false);
+        if (enabled) {
+            context.startService(new Intent(context, FPSInfoService.class));
+        }
         SliceItem intent = null;
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
             enableComponent(context, ScreenOffGesture.class.getName());

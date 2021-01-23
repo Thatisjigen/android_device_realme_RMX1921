@@ -111,7 +111,7 @@
                  android:permission="RealmeDozeService">
         </service>
         <service
-            android:name=".FPSInfoService"
+            android:name="com.Galaxy.Features.FPSInfoService"
             android:exported="false">
         </service>
         <service

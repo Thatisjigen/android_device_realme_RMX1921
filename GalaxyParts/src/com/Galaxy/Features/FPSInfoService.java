@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The OmniROM Project
+ * Copyright (C) 2020 The Xiaomi-SM6250 Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.IBinder;
@@ -57,7 +56,7 @@ public class FPSInfoService extends Service {
     private final String TAG = "FPSInfoService";
     private String mFps = null;
 
-    private static final String MEASURED_FPS = "/sys/devices/virtual/graphics/fb0/measured_fps";
+    private static final String MEASURED_FPS = "/sys/class/drm/sde-crtc-0/measured_fps";
 
     private IDreamManager mDreamManager;
 
@@ -65,7 +64,7 @@ public class FPSInfoService extends Service {
         private Paint mOnlinePaint;
         private float mAscent;
         private int mFH;
-        private int mMaxWidth;
+        private int mMaxWidth = 0;
 
         private int mNeededWidth;
         private int mNeededHeight;
@@ -74,16 +73,14 @@ public class FPSInfoService extends Service {
 
         private Handler mCurFPSHandler = new Handler() {
             public void handleMessage(Message msg) {
-                if(msg.obj==null){
+                if(msg.obj == null || msg.what != 1) {
                     return;
                 }
-                if(msg.what==1){
-                    String msgData = (String) msg.obj;
-                    msgData = msgData.substring(0, Math.min(msgData.length(), 9));
-                    mFps = msgData;
-                    mDataAvail = true;
-                    updateDisplay();
-                }
+                String msgData = (String) msg.obj;
+                msgData = msgData.trim().split("\\s+")[1];
+                mFps = msgData + " FPS";
+                mDataAvail = true;
+                updateDisplay();
             }
         };
 
@@ -96,7 +93,7 @@ public class FPSInfoService extends Service {
 
             final int textSize = Math.round(12 * density);
 
-            Typeface typeface = Typeface.create("sans-serif-condensed", Typeface.BOLD);
+            Typeface typeface = Typeface.create("monospace", Typeface.NORMAL);
 
             mOnlinePaint = new Paint();
             mOnlinePaint.setTypeface(typeface);
@@ -108,9 +105,6 @@ public class FPSInfoService extends Service {
             mAscent = mOnlinePaint.ascent();
             float descent = mOnlinePaint.descent();
             mFH = (int)(descent - mAscent + .5f);
-
-            final String maxWidthStr="60.1";
-            mMaxWidth = (int)mOnlinePaint.measureText(maxWidthStr);
 
             updateDisplay();
         }
@@ -163,6 +157,10 @@ public class FPSInfoService extends Service {
                 return;
             }
 
+            if (mOnlinePaint != null) {
+                mMaxWidth = (int) mOnlinePaint.measureText(mFps);
+            }
+
             int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth;
             int neededHeight = mPaddingTop + mPaddingBottom + 40;
             if (neededWidth != mNeededWidth || neededHeight != mNeededHeight) {
@@ -195,7 +193,7 @@ public class FPSInfoService extends Service {
         public void run() {
             try {
                 while (!mInterrupt) {
-                    sleep(1000);
+                    sleep(500);
                     StringBuffer sb=new StringBuffer();
                     String fpsVal = FPSInfoService.readOneLine(MEASURED_FPS);
                     mHandler.sendMessage(mHandler.obtainMessage(1, fpsVal));
@@ -218,6 +216,7 @@ public class FPSInfoService extends Service {
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             PixelFormat.TRANSLUCENT);
+        params.y = 50;
         params.gravity = Gravity.LEFT | Gravity.TOP;
         params.setTitle("FPS Info");
 
@@ -281,6 +280,13 @@ public class FPSInfoService extends Service {
     };
 
     private boolean isDozeMode() {
+        try {
+            if (mDreamManager != null && mDreamManager.isDreaming()) {
+                return true;
+            }
+        } catch (RemoteException e) {
+            return false;
+        }
         return false;
     }
 
