@@ -1,3 +1,7 @@
+# Apex metadata
+/data/vendor/metadata_apex(/.*)?              u:object_r:apex_metadata_file:s0
+/data/vendor/metadata_apex/sessions(/.*)?     u:object_r:apex_metadata_file:s0
+
 # Audio
 /mnt/vendor/persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
 /proc/asound/card0/codecs(/.*)?                                                u:object_r:proc_audio_file:s0
