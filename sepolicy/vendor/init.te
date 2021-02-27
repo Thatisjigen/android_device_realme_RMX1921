@@ -16,3 +16,13 @@ allow init vendor_file:file execute;
 allow init vendor_data_file:file lock;
 allow init hal_audio_default:binder call;
 allow init platform_app:binder call;
+allow init oppo_debug_prop:file {read open getattr setattr };
+
+# Otg Switch
+allow init sysfs_usb_supply:file setattr;
+allow init sysfs_usb_supply:file rw_file_perms;
+set_prop(init, oppo_debug_prop)
+
+# Netutils
+allow init netutils_wrapper_exec:file { execute read open getattr };
+allow init init:netlink_route_socket { read getattr };
