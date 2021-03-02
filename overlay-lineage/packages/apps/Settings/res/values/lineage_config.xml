@@ -22,4 +22,6 @@
     -->
     <integer name="config_fingerprintSensorLocation">1</integer>
 
+    <!-- Screen off FOD -->
+    <bool name="config_supportScreenOffFod">false</bool>
 </resources>
