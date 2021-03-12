@@ -17,3 +17,5 @@ get_prop(hal_fingerprint_default, oppo_debug_prop);
 set_prop(hal_fingerprint_default, oppo_fingerprint_prop);
 allow hal_fingerprint_default dcs_hwservice:hwservice_manager find;
 allow hal_fingerprint_default sysfs_oppo_display:dir search;
+dontaudit hal_fingerprint_default default_android_hwservice:hwservice_manager find;
+dontaudit hal_fingerprint_default default_prop:file read;
