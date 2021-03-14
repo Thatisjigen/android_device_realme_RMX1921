@@ -12,7 +12,7 @@ allow init sysfs_oppo_display:file setattr;
 allow init bt_firmware_file:filesystem getattr;
 allow init firmware_file:filesystem getattr;
 allow init vendor_file:file execute;
-
+allow init oppo_debug_prop:property_service set;
 allow init vendor_data_file:file lock;
 allow init hal_audio_default:binder call;
 allow init platform_app:binder call;

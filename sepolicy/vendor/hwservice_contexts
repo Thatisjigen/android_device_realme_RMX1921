@@ -14,6 +14,7 @@ vendor.nxp.nxpese::INxpEse                                      u:object_r:nfc_h
 
 # Radio
 vendor.oppo.hardware.radio.oppoappradio::IOppoAppRadio          u:object_r:opporadio_hwservice:s0
+vendor.oppo.hardware.radio.oppoappradio::IOppoRadio          u:object_r:opporadio_hwservice:s0
 
 # Dolby
 vendor.dolby.hardware.dms::IDms                                            u:object_r:hal_dms_hwservice:s0
