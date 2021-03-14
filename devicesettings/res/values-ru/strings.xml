@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-2017 The OmniROM Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="device_title">Настройки Realme</string>
+    <string name="device_summary">Специальные настройки устройства Realme</string>
+    <string name="display_title">Дисплей</string>
+    <string name="misc_title">Прочее</string>
+
+    <!-- DC dimming -->
+    <string name="dc_mode_summary">Уменьшает мерцание экрана при низкой яркости</string>
+    <string name="dc_mode_title">DC-Dimming</string>
+    <string name="tile_dc_mode">DC-Dimming</string>
+    <!-- HBM mode -->
+    <string name="hbm_mode_summary">Максимальная яркость для лучшей видимости</string>
+    <string name="hbm_mode_title">Режим высокой яркости </string>
+    <string name="tile_hbm_mode">Режим высокой яркости </string>
+    <!-- srgb mode -->
+    <string name="srgb_mode_summary">Режим sRGB для оптимальной цветовой палитры</string>
+    <string name="srgb_mode_title">Режим sRGB</string>
+    <string name="tile_srgb_mode">sRGB</string>
+    <!-- otg mode -->
+    <string name="otg_mode_summary">Для подключения внешних USB устройств</string>
+    <string name="otg_mode_title">Включить USB-OTG</string>
+    <string name="tile_otg_mode">USB-OTG</string>
+    <!-- game mode -->
+    <string name="game_mode_summary">Повышение частоты опроса сенсорного экрана </string>
+    <string name="game_mode_title">Игровой режим</string>
+    <string name="tile_game_mode">Игровой режим</string>
+</resources>
