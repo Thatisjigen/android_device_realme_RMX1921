@@ -16,7 +16,8 @@ persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
 vendor.bluetooth.soc=cherokee
 
 # Camera
-ro.camera.hfr.enable=0
+persist.vendor.camera.light_ae.enable=1
+ro.camera.hfr.enable=1
 ro.camera.relight.enable=0
 ro.camera.attr.detect.enable=1
 ro.camera.notify_nfc=1
