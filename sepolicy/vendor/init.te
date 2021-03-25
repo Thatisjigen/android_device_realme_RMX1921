@@ -39,3 +39,5 @@ allow init {
 allow init hwservicemanager:binder { call transfer };
 allow init hidl_base_hwservice:hwservice_manager add;
 allow init apex_metadata_file:lnk_file read;
+
+set_prop(init, vendor_power_prop)
