@@ -1430,7 +1430,7 @@ vendor/firmware/tp/19651/FW_S3706_SAMSUNG.img
 vendor/firmware/tp/19651/FW_S3706_SAMSUNG_FAE.img
 vendor/firmware/tp/19651/LIMIT_S3706_SAMSUNG.img
 
-# Thermal engine
+# Thermal engine from PNX_00WW_FIH-user-11-RKQ1.200906.002-00WW_6_100-release-keys
 vendor/bin/thermal-engine
 vendor/lib64/libthermalclient.so
 vendor/lib/libthermalclient.so
