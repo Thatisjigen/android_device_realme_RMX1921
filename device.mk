@@ -151,7 +151,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RealmeDoze \
     RealmeProximityHelper \
-    GalaxyParts
+    RealmeParts
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -384,7 +384,6 @@ PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.oppo.reserve.rc \
     init.msm.usb.configfs.rc \
-    init.GalaxyParts.sh \
     init.oppo.fingerprints.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -395,7 +394,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
     init.target.rc \
-    init.GalaxyParts.rc \
+    init.RealmeParts.rc \
     ueventd.qcom.rc
 
 # Recovery
@@ -505,3 +504,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wlan/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wlan/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wlan/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
