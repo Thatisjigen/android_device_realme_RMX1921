@@ -1,0 +1,39 @@
+# SPECTRUM KERNEL MANAGER
+# Ramdisk file for profile based kernel management
+# Implementation inspired by Franco's fku profiles
+
+# Initialization
+on property:sys.boot_completed=1
+# Set default profile on first boot
+exec u:r:init:s0 root root -- /init.spectrum.sh
+exec u:r:su:s0 root root -- /init.spectrum.sh
+# Enable Spectrum support
+setprop spectrum.support 1
+# Add kernel name
+setprop persist.spectrum.kernel Jigen
+
+# Balance (default profile)
+on property:persist.spectrum.profile=0
+# Configure governor settings for little cluster
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "pixutil"
+
+# Configure governor settings for big cluster
+write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor "pixutil"
+
+# Gaming
+on property:persist.spectrum.profile=1
+# Configure governor settings for little cluster
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+
+# Configure governor settings for big cluster
+write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor "performance"
+
+# Battery
+on property:persist.spectrum.profile=2
+# Configure governor settings for little cluster
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "energy_dcfc"
+
+# Configure governor settings for big cluster
+write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor "energy_dcfc"
+
+# END

@@ -397,6 +397,11 @@ PRODUCT_PACKAGES += \
     init.RealmeParts.rc \
     ueventd.qcom.rc
 
+# Spectrum
+PRODUCT_PACKAGES += \
+   init.spectrum.rc \
+   init.spectrum.sh
+
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_RMX1921
