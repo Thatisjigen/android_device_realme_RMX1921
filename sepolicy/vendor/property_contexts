@@ -62,3 +62,6 @@ persist.audio.dualmic.config                    u:object_r:vendor_audio_prop:s0
 persist.vendor.dolby.loglevel                   u:object_r:vendor_dolby_loglevel_prop:s0
 
 persist.spectrum.                             u:object_r:spectrum_prop:s0
+
+# Dirac
+persist.audio.dirac.                                          u:object_r:dirac_prop:s0

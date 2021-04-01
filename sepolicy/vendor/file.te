@@ -34,3 +34,6 @@ type sysfs_iio, sysfs_type, fs_type;
 type sysfs_restart, sysfs_type, fs_type;
 
 type vulkan_hal, file_type;
+
+# Kcal
+type proc_kcal_file, sysfs_type, fs_type;
