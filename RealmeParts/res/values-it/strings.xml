@@ -190,7 +190,8 @@
     <string name="hybrid_mamba">Mamba ibrido</string>
     <string name="kcal_hue">Hue</string>
     <string name="kcal_value">Valore</string>
-
+    <string name="klapsebutton">Klapse</string>
+    <string name="klapse_summary">Luminosità notturna in-kernel </string>
     <!-- Spectrum Profiles -->
     <string name="spectrum_profile_title">Spectrum</string>
     <string name="spectrum_title">Profili spectrum</string>

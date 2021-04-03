@@ -161,6 +161,9 @@
     <string name="hand_wave_gesture_flat_title">Detect orientation</string>
     <string name="hand_wave_gesture_flat_summary">Pulse only if the phone is lying face up on a flat surface</string>
 
+    <string name="klapsebutton">Klapse</string>
+    <string name="klapse_summary">Klapse is a smart livedisplay module </string>
+
     <!-- Kcal -->
     <string name="kcal">Display</string>
     <string name="kcal_title">Display color control</string>

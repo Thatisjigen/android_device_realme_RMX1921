@@ -21,6 +21,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.opengl.Matrix;
 import android.os.Bundle;
+import android.content.Intent;
+import android.content.ComponentName;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -134,6 +136,16 @@ public class DisplayCalibration extends PreferenceActivity implements
         String kcalPresetsValue = mPrefs.getString(KEY_KCAL_PRESETS_LIST, "0");
         mKcalPresetsListPreference.setValue(kcalPresetsValue);
         mKcalPresetsListPreference.setOnPreferenceChangeListener(this);
+  	Preference button = findPreference(getString(R.string.klapsebutton));
+  	button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+      	@Override
+      	public boolean onPreferenceClick(Preference preference) {
+  		Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setComponent(new ComponentName("com.smartpack.colorcontrol","com.smartpack.colorcontrol.MainActivity"));
+    		startActivity(intent);
+  		return true;
+	    }
+  	});
     }
 
     private boolean isSupported(String file) {
