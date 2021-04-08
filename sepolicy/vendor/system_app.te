@@ -8,7 +8,6 @@ allow system_app vendor_default_prop:file { getattr open };
 allow system_app vendor_default_prop:file {map};
 
 # FPS Info
-allow system_app sysfs_graphics:file rw_file_perms;
 allow system_app sysfs_fps:file rw_file_perms;
 
 # Smart Charging and DeviceSettings
