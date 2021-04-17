@@ -38,37 +38,6 @@
     <string name="game_mode_title">Игровой режим</string>
     <string name="tile_game_mode">Игровой режим</string>
 
-    <!-- Kcal -->
-    <string name="kcal">Экран</string>                                                                              
-    <string name="kcal_title">Контроль цвета экрана</string>
-    <string name="kcal_summary">Калибровка цвета экрана с использованием KCAL</string>
-    <string name="kcal_enabled_title">Включить KCAL</string>
-    <string name="kcal_enabled_summary">Включить калибровку экрана с использованием KCAL</string>
-    <string name="kcal_red">Красный</string>
-    <string name="kcal_green">Зелёный</string>
-    <string name="kcal_blue">Синий</string>
-    <string name="kcal_saturation">Насыщенность</string>
-    <string name="kcal_contrast">Контраст</string>
-    <string name="menu_reset">Сбросить</string>
-    <string name="kcal_color_temp">Температура цвета (K)</string>
-
-    <string name="kcal_greyscale_title">Шкала серого</string>                              
-    <string name="kcal_greyscale_summary">Полностью отключить насыщенность</string>
-    <string name="presets_list_title">Загрузить пресет KCAL</string>
-    <string name="default_values">По умолчанию</string>
-    <string name="version_1">Версия 1</string>
-    <string name="version_2">Версия 2</string>
-    <string name="version_3">Версия 3</string>
-    <string name="triluminous">Triluminous</string>
-    <string name="deep_black_and_white">Deep Black and White</string>
-    <string name="deep_natural">Deep Natural</string>
-    <string name="cool_amoled">Cool Amoled</string>
-    <string name="extreme_amoled">Extreme Amoled</string>
-    <string name="warm_amoled">Warm Amoled</string>
-    <string name="hybrid_mamba">Hybrid Mamba</string>
-    <string name="kcal_hue">Оттенок</string>
-    <string name="kcal_value">Значение</string>                                     
-
     <!-- Аудио -->   
     <string name="audio_title">Аудио</string>
 

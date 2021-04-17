@@ -38,37 +38,6 @@
     <string name="game_mode_title">Modo juego</string>
     <string name="tile_game_mode">Modo juego</string>
 
-    <!-- Kcal -->
-    <string name="kcal">Pantalla</string>                                                                              
-    <string name="kcal_title">Control del color de la pantalla</string>
-    <string name="kcal_summary">Calibracion del color de la pantalla usando KCAL</string>
-    <string name="kcal_enabled_title">Habilitar KCAL</string>
-    <string name="kcal_enabled_summary">Habilitar calibracion de la pantalla usando KCAL</string>
-    <string name="kcal_red">Rojo</string>
-    <string name="kcal_green">Verde</string>
-    <string name="kcal_blue">Azul</string>
-    <string name="kcal_saturation">Saturacion</string>
-    <string name="kcal_contrast">Contraste</string>
-    <string name="menu_reset">Restablecer</string>
-    <string name="kcal_color_temp">Temperatura de color (K)</string>
-
-    <string name="kcal_greyscale_title">Escala de gris</string>                              
-    <string name="kcal_greyscale_summary">Apagar completamente la saturacion</string>
-    <string name="presets_list_title">Cargar preset KCAL</string>
-    <string name="default_values">Por defecto</string>
-    <string name="version_1">Version 1</string>
-    <string name="version_2">Version 2</string>
-    <string name="version_3">Version 3</string>
-    <string name="triluminous">Triluminous</string>
-    <string name="deep_black_and_white">Deep Black and White</string>
-    <string name="deep_natural">Deep Natural</string>
-    <string name="cool_amoled">Cool Amoled</string>
-    <string name="extreme_amoled">Extreme Amoled</string>
-    <string name="warm_amoled">Warm Amoled</string>
-    <string name="hybrid_mamba">Hybrid Mamba</string>
-    <string name="kcal_hue">Sombra</string>
-    <string name="kcal_value">Valor</string>                                     
-
     <!-- Audio -->  
     <string name="audio_title">Audio</string>
 

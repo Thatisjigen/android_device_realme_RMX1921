@@ -51,7 +51,7 @@
     <string name="pick_up_gesture_summary">Отображать уведомления при поднятии</string>
 
     <!-- Pick-up to wake gesture-->
-    <string name="wake_gesture_title">Пробуждениеstring</string>
+    <string name="wake_gesture_title">Пробуждение</string>
     <string name="wake_gesture_summary">Будить устройство вместо отображения уведомления</string>
 
     <!-- Pocket gesture -->

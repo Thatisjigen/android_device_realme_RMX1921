@@ -39,40 +39,6 @@
 
     <string name="customize_title">Impostazioni Realme</string>
 
-    <!-- Kcal -->
-    <string name="kcal">Display</string>
-    <string name="kcal_title">Controllo dei colori del display</string>
-    <string name="kcal_summary">Controlla i colori del display con KCAL</string>
-    <string name="kcal_enabled_title">Attiva KCAL</string>
-    <string name="kcal_enabled_summary">Attiva la calibrazione dei colori con KCAL</string>
-    <string name="kcal_red">Rosso</string>
-    <string name="kcal_green">Verde</string>
-    <string name="kcal_blue">Blu</string>
-    <string name="kcal_saturation">Saturazione</string>
-    <string name="kcal_contrast">Contrasto</string>
-    <string name="menu_reset">Reset</string>
-    <string name="kcal_color_temp">Temperatura dei colori (K)</string>
-
-    <string name="kcal_greyscale_title">Scala di grigi</string>
-    <string name="kcal_greyscale_summary">Saturatione nulla</string>
-    <string name="presets_list_title">Carica un preset per KCAL</string>
-    <string name="default_values">Predefinito</string>
-    <string name="version_1">Versione 1</string>
-    <string name="version_2">Versione 2</string>
-    <string name="version_3">Versione 3</string>
-    <string name="triluminous">Triluminous</string>
-    <string name="deep_black_and_white">Bianco e nero profondi</string>
-    <string name="deep_natural">Naturali profondi</string>
-    <string name="cool_amoled">Amoled freddi</string>
-    <string name="extreme_amoled">Amoled estremo</string>
-    <string name="warm_amoled">Amoled caldi</string>
-    <string name="hybrid_mamba">Mamba ibrido</string>
-    <string name="kcal_hue">Hue</string>
-    <string name="kcal_value">Valore</string>
-
-    <string name="klapsebutton">Klapse</string>
-    <string name="klapse_summary">Luminosità notturna in-kernel </string>
-
     <!-- Audio -->
     <string name="audio_title">Audio</string>
 

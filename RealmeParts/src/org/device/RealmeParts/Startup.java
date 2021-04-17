@@ -26,7 +26,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 import org.device.RealmeParts.ModeSwitch.GameModeSwitch;
-import org.device.RealmeParts.kcal.DisplayCalibration;
 import org.device.RealmeParts.DiracUtils;
 
 public class Startup extends BroadcastReceiver {
@@ -53,11 +52,9 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
         boolean enabled = false;
-        context.startService(new Intent(context, DisplayCalibration.class));
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences (context);
         enabled = sharedPrefs.getBoolean (RealmeParts.KEY_GAME_SWITCH, false);
         restore (GameModeSwitch.getFile ( ), enabled);
-        context.startService (new Intent (context, DisplayCalibration.class));
         context.startService(new Intent(context, DiracService.class));
         enabled = sharedPrefs.getBoolean(RealmeParts.KEY_DC_SWITCH, false);
         restore(DCModeSwitch.getFile(), enabled);

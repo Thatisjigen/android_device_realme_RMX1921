@@ -46,7 +46,6 @@ import androidx.preference.TwoStatePreference;
 
 
 import org.device.RealmeParts.ModeSwitch.GameModeSwitch;
-import org.device.RealmeParts.kcal.DisplayCalibration;
 import org.device.RealmeParts.preferences.CustomSeekBarPreference;
 import org.device.RealmeParts.preferences.SecureSettingListPreference;
 import org.device.RealmeParts.preferences.SecureSettingSwitchPreference;
@@ -108,16 +107,6 @@ public class RealmeParts extends PreferenceFragment
         mGameModeSwitch.setEnabled(GameModeSwitch.isSupported());
         mGameModeSwitch.setChecked(GameModeSwitch.isCurrentlyEnabled(this.getContext()));
         mGameModeSwitch.setOnPreferenceChangeListener(new GameModeSwitch());
-
-        mKcalPref = findPreference("kcal");
-                mKcalPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                     @Override
-                     public boolean onPreferenceClick(Preference preference) {
-                         Intent intent = new Intent(getContext(), DisplayCalibration.class);
-                         startActivity(intent);
-                         return true;
-                     }
-                });
 
         boolean enhancerEnabled;
         try {

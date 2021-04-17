@@ -40,15 +40,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:title="@string/kcal">
-         <PreferenceScreen
-                android:key="kcal"
-                android:fragment="org.device.RealmeParts.kcal.DisplayCalibration"
-                android:summary="@string/kcal_summary"
-                android:title="@string/kcal_title" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="audio"
         android:title="@string/audio_title">
 
