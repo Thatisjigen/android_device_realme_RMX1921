@@ -29,6 +29,9 @@
 # Goodix Fingerprint device
 /dev/goodix_fp                                                                                           u:object_r:goodix_device:s0
 
+# I/O
+/sys/devices(/platform)?/soc/[a-f0-9]+.sdhci/mmc_host/mmc[0-9]/mmc[0-9]:[a-f0-9]+/block/mmcblk[0-9]/queue/read_ahead_kb u:object_r:sysfs_mmc_host:s0
+
 # Kcal
 /sys/module/msm_drm/parameters(/.*)?                                                             u:object_r:proc_kcal_file:s0
 
