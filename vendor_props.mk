@@ -200,6 +200,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.sensortype=2 \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
 
+# Pre-rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.perf.scroll_opt=true
+
 # Phase offsets
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.sf.use_phase_offsets_as_durations=1 \
