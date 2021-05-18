@@ -70,9 +70,6 @@
     <string name="kcal_hue">Hue</string>
     <string name="kcal_value">Valore</string>
 
-    <string name="klapsebutton">Klapse</string>
-    <string name="klapse_summary">Luminosità notturna in-kernel </string>
-
     <!-- Audio -->
     <string name="audio_title">Audio</string>
 

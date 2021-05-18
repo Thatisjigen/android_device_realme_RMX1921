@@ -40,10 +40,6 @@
     <string name="game_mode_title">Game Mode</string>
     <string name="tile_game_mode">Game Mode</string>
 
-    <!-- KLapse -->
-    <string name="klapsebutton">Klapse</string>
-    <string name="klapse_summary">Klapse is a smart livedisplay module </string>
-
     <!-- Kcal -->
     <string name="kcal">Display</string>
     <string name="kcal_title">Display color control</string>

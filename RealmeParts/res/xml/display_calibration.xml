@@ -117,10 +117,5 @@
         android:entryValues="@array/presets_values"
         android:dependency="kcal_enabled"
         android:defaultValue="0"/>
-   <Preference
-    	android:title="Klapse"
-    	android:key="@string/klapsebutton"
-    	android:summary="@string/klapse_summary"
-   />
 
 </PreferenceScreen>
