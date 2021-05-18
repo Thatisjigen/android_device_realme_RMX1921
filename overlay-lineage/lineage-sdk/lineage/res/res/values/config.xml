@@ -15,6 +15,9 @@
 -->
 <resources>
 
+    <!-- Show LiveDisplay settings -->
+    <bool name="config_enableLiveDisplay">false</bool>
+
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
 
