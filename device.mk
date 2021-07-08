@@ -340,7 +340,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.0.vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/power-libperfmgr/xt_powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Public libraries
 PRODUCT_COPY_FILES += \
