@@ -415,7 +415,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.0.vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(LOCAL_PATH)/power-libperfmgr/xt_powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
