@@ -37,3 +37,6 @@ type vulkan_hal, file_type;
 
 # Kcal
 type proc_kcal_file, sysfs_type, fs_type;
+
+# GCam
+type public_adsprpcd_file, file_type;
