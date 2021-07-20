@@ -14,13 +14,14 @@ PRODUCT_BRAND := Realme
 PRODUCT_DEVICE := RMX1921
 PRODUCT_MANUFACTURER := Realme
 PRODUCT_NAME := lineage_RMX1921
-PRODUCT_MODEL := XT
+PRODUCT_MODEL := Realme XT
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="redfin-user 11 210705.001 7380771 release-keys" \
-    PRODUCT_NAME="RMX1921"
+    PRODUCT_NAME="RMX1921" \
+    TARGET_DEVICE="RMX1921"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := google/redfin/redfin:11/210705.001/7380771:user/release-keys
