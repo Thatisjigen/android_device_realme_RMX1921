@@ -2885,13 +2885,13 @@ case "$target" in
       echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
       # configure governor settings for little cluster
-      echo "pixutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+      echo "schedutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
       echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/rate_limit_us
       echo 1209600 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
       echo 576000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
       # configure governor settings for big cluster
-      echo "pixutil" > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
+      echo "schedutil" > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
       echo 0 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/rate_limit_us
       echo 1344000 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq
       echo 652800 > /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
