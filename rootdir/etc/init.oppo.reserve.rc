@@ -24,7 +24,6 @@ on post-fs-data
   mkdir /mnt/vendor/opporeserve/media
   chown system system /mnt/vendor/opporeserve/media
   chmod 0771 /mnt/vendor/opporeserve/media
-# mount sdcardfs /dev/block/bootdevice/by-name/mnt/vendor/opporeserve2 /mnt/vendor/opporeserve/media reserved_mb=24
   mkdir /mnt/vendor/opporeserve/media/dropbox
   chown system system /mnt/vendor/opporeserve/media/dropbox
   chmod 0771 /mnt/vendor/opporeserve/media/dropbox
@@ -65,7 +64,6 @@ on post-fs-data
 
   restorecon_recursive /mnt/vendor/opporeserve
 
-##ifdef VENDOR_EDIT
 #wenjie.Liu@CN.NFC.Basic.Felica.1334855,add for: Felica Nvram store in opporeserve
   mkdir /mnt/vendor/opporeserve/media/nfclock 0771
   chown system system /mnt/vendor/opporeserve/media/nfclock
@@ -73,4 +71,3 @@ on post-fs-data
   chown nfc system /mnt/vendor/opporeserve/connectivity
   mkdir /mnt/vendor/opporeserve/connectivity/felicalock 0771
   chown nfc system /mnt/vendor/opporeserve/connectivity/felicalock
-##endif VENDOR_EDIT

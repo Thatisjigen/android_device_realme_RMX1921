@@ -24,31 +24,13 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-#ifdef VENDOR_EDIT
-#Jianchao.Shi@BSP.CHG.Basic 2018/03/20, sjc Add for oppo devices
-import init.oppo.rc
-#endif /* VENDOR_EDIT */
 
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
-import /vendor/etc/init/hw/init.qcom.test.rc
 import /vendor/etc/init/hw/init.target.rc
-import /vendor/etc/init/hw/init.qcom.factory.rc
 import /vendor/etc/init/hw/init.RealmeParts.rc
-import /vendor/etc/init/hw/init.spectrum.rc
-
-#ifdef VENDOR_EDIT
-#Fei.Mo@BSP.senosor 2018/10/30 add for init.oppo.vendor.motor.rc
-import /vendor/etc/init/hw/init.oppo.vendor.motor.rc
-#Fei.Mo@BSP.senosor 2018/11/20 add for init.oppo.sensor.rc
-import /vendor/etc/init/hw/init.oppo.sensor.rc
-#Xuefeng.Peng@PSW.AD.Storage.0, 2019/06/10, Add for init.oppo.reserve.rc
 import /vendor/etc/init/hw/init.oppo.reserve.rc
-#endif /*VENDOR_EDIT*/
-#ifdef VENDOR_EDIT
-#Junhao.Liang@PSW.AD.OppoDebug.LogKit.1080426, 2018/12/04, Add for import init.oppo.debug.diag.rc
-import /vendor/etc/init/hw/init.oppo.debug.diag.rc
-#endif /*VENDOR_EDIT*/
+
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
@@ -72,8 +54,6 @@ on early-init
     chmod 0620 /dev/kmsg
     # Load WIGIG platform driver
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules msm_11ad_proxy
-
-import /system/etc/init/init.devicesetting.rc
 
 on init
 
@@ -1091,49 +1071,6 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-##ifndef VENDOR_EDIT
-#Wentian.mai@PSW.NW.EM.1139269, 2017/10/31
-#modify for on Rftoolkit
-#service diag_mdlog_start /system/vendor/bin/diag_mdlog
-#    class late_start
-#    user shell
-#    group system oem_2901 sdcard_rw sdcard_r media_rw
-##else /*VENDOR_EDIT*/
-service diag_mdlog_start /vendor/bin/diag_mdlog -c
-    class late_start
-    user shell
-    group system diag  oem_2901 sdcard_rw sdcard_r media_rw
-##endif /*VENDOR_EDIT*/
-    disabled
-    oneshot
-
-##ifndef VENDOR_EDIT
-#Wentian.mai@PSW.NW.EM.1139269, 2017/10/31
-#modify for on device log permission
-#service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
-#    class late_start
-#    user shell
-#    group system oem_2901 sdcard_rw sdcard_r media_rw
-##else /*VENDOR_EDIT*/
-service diag_mdlog_stop /vendor/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system diag  oem_2901 sdcard_rw sdcard_r media_rw
-##endif /*VENDOR_EDIT*/
-    disabled
-    oneshot
-
-#ifdef VENDOR_EDIT
-#zhengpeng.tan@PSW.NW.EM.1139269, 2017/10/31
-#Add for device log on nrt mode
-service diag_mdlog_nrt /vendor/bin/diag_mdlog -c -b
-    class late_start
-    user shell
-    group system diag  oem_2901 sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-#endif VENDOR_EDIT
-
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
     class main
@@ -1217,14 +1154,6 @@ service time_daemon /vendor/bin/time_daemon
 on property:ro.vendor.radio.noril=*
     setprop ro.radio.noril ${ro.vendor.radio.noril}
 
-#ifdef VENDOR_EDIT
-#Bingshu.Zhou@PSW.AD.Memory.2256865, 2019/9/24, Remove for remove qssp feature
-#service seemp_healthd /vendor/bin/seemp_healthd
-#    class late_start
-#    user system
-#    group system
-#endif /*VENDOR_EDIT*/
-
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
@@ -1245,15 +1174,6 @@ service vendor.hbtp /vendor/bin/hbtp_daemon
      capabilities SYS_NICE
      disabled
 
-#ifdef VENDOR_EDIT
-#Zengchao@PSW.BSP.Sensor. add for remove chre 2018/11/15
-#service chre /vendor/bin/chre
-#    class late_start
-#    user system
-#    group system
-#    socket chre seqpacket 0660 root system
-#    shutdown critical
-#endif
 on property:vendor.chre.enabled=0
    stop chre
 
