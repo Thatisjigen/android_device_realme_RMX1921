@@ -251,7 +251,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.xt
+    android.hardware.lights-service.xt
 
 # Media
 PRODUCT_PACKAGES += \

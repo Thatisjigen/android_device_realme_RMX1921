@@ -49,9 +49,6 @@
 /dev/socket/gps                                                         u:object_r:gps_socket:s0
 /sys/devices/platform/soc/[0-9]+\.spi/spi_master/spi[0-9]+/spi[0-9]+\.0/nstandby    u:object_r:sysfs_gps:s0
 
-# IR
-/vendor/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi               u:object_r:hal_ir_default_exec:s0
-
 # IR devices
 /dev/ir_spi                                                             u:object_r:lirc_device:s0
 /dev/lirc[0-9]                                                          u:object_r:lirc_device:s0
@@ -62,7 +59,9 @@
 /sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds(/.*)?                                                                        u:object_r:sysfs_leds:s0
 
 # Lights
-/vendor/bin/hw/android\.hardware\.light-service\.xiaomi                 u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.lights-service\.xt        u:object_r:hal_light_default_exec:s0
+/sys/class/lcd_bias/secure_mode                                                u:object_r:sysfs_lcd_file:s0
+/sys/class/leds/wled/secure_mode                                                u:object_r:sysfs_led_file:s0
 
 # Mlipay
 /vendor/bin/mlipayd@1\.1                                                u:object_r:hal_mlipay_default_exec:s0

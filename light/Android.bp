@@ -1,0 +1,17 @@
+cc_binary {
+    name: "android.hardware.lights-service.xt",
+    init_rc: ["android.hardware.lights-service.xt.rc"],
+    vintf_fragments: ["lights.xml"],
+    relative_install_path: "hw",
+    shared_libs: [
+        "libbase",
+        "libhardware",
+        "libbinder_ndk",
+        "android.hardware.light-ndk_platform",
+    ],
+    srcs: [
+        "Light.cpp",
+        "service.cpp",
+    ],
+    proprietary: true,
+}

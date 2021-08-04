@@ -1,0 +1,5 @@
+service vendor.lights /vendor/bin/hw/android.hardware.lights-service.xt
+class hal
+    user system
+    group system
+    shutdown critical
