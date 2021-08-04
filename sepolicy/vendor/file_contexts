@@ -40,7 +40,7 @@
 /sys/module/msm_drm/parameters(/.*)?                                                             u:object_r:proc_kcal_file:s0
 
 # Light Hal
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xt                     u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.lights-service\.xt        u:object_r:hal_light_default_exec:s0
 /sys/class/lcd_bias/secure_mode                                                u:object_r:sysfs_lcd_file:s0
 /sys/class/leds/wled/secure_mode                                                u:object_r:sysfs_led_file:s0
 

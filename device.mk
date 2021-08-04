@@ -253,7 +253,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xt
+    android.hardware.lights-service.xt
 
 # Media
 PRODUCT_PACKAGES += \
