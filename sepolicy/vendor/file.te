@@ -44,4 +44,3 @@ type public_adsprpcd_file, file_type;
 # Audio control
 type sysfs_hgain, sysfs_type, fs_type;
 type sysfs_mgain, sysfs_type, fs_type;
-type sysfs_sgain, sysfs_type, fs_type;
