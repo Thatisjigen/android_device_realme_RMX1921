@@ -159,6 +159,9 @@ on boot
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
+# Prevents permission denied error for telephony
+    chmod 0644 /proc/cmdline
+
     chmod 0660 /proc/touchpanel/double_tap_enable
     chmod 0660 /proc/touchpanel/oppo_tp_limit_enable
     chmod 0660 /proc/touchpanel/oppo_tp_direction
