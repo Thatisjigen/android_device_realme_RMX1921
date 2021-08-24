@@ -152,7 +152,7 @@ case "$buildvariant" in
     #if VENDOR_EDIT
     #Qicai.Gu@PSW.BSP.TP 2019-07-19 Add for modified kernel log level
     "user")
-        echo "1 6 1 7" > /proc/sys/kernel/printk
+        echo "0 4 1 3" > /proc/sys/kernel/printk
         ;;
     #endif
     *)
