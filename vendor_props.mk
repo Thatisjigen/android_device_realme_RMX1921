@@ -32,8 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sos=true \
     ro.vendor.audio.soundfx.usb=true \
     vendor.audio.apptype.multirec.enabled=false \
-    vendor.audio.dolby.ds2.enabled=false \
-    vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.feature.a2dp_offload.enable=true \
     vendor.audio.feature.afe_proxy.enable=true \
     vendor.audio.feature.anc_headset.enable=true \
@@ -92,7 +90,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.use.sw.ape.decoder=true \
     vendor.audio.volume.headset.gain.depcal=true \
     vendor.audio_hal.period_size=192 \
-    ro.vendor.audio.soundfx.type=dirac \
     vendor.audio.feature.compr_voip.enable=false \
     vendor.audio.voice.receiver.status=off \
     vendor.voice.path.for.pcm.voip=true
@@ -127,22 +124,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    dalvik.vm.dex2oat64.enabled=true
 
-# Dirac algo tsx 9/12
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dirac.acs.controller=qem \
-    persist.dirac.acs.storeSettings=1 \
-    persist.dirac.acs.ignore_error=1
-
-# Dirac headset effect
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.audio.soundfx.dirac=true \
-    persist.audio.dirac.speaker=true
-
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.enable_default_color_mode=1 \
     ro.vendor.display.cabl=2 \
     ro.sf.lcd_density=420
+
+# Dolby
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.audio_fx.current=dolby \
+    ro.vendor.dolby.dax.version=DS1_2.2.0.0_r1 \
+    vendor.audio.dolby.ds2.enabled=false \
+    vendor.audio.dolby.ds2.hardbypass=false
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
