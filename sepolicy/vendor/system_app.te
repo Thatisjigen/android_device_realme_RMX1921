@@ -22,4 +22,18 @@ allow system_app sysfs_zram:file r_file_perms;
 allow system_app {
     sysfs_hgain
     sysfs_mgain
+    sysfs_devices_system_cpu
+    sysfs_biggovernor
+    sysfs_littlegovernor
+    sysfs_aidler
+    sysfs_aidlerwl
+    sysfs_aidlerdd
+    sysfs_aidleriw
+    sysfs_inputboostfreq
+    sysfs_boostms
+    sysfs_iboostms
 }:file rw_file_perms;
+allow system_app sysfs_kgsl:lnk_file { getattr open read write };
+allow system_app sysfs_cpu_boost:dir search;
+allow system_app sysfs_cpu_boost:file rw_file_perms;
+allow system_app sysfs_kgsl:file rw_file_perms;

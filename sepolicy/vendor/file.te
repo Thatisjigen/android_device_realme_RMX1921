@@ -44,3 +44,15 @@ type public_adsprpcd_file, file_type;
 # Audio control
 type sysfs_hgain, sysfs_type, fs_type;
 type sysfs_mgain, sysfs_type, fs_type;
+
+# Perf control
+type sysfs_biggovernor, sysfs_type, fs_type;
+type sysfs_littlegovernor, sysfs_type, fs_type;
+type sysfs_aboost, sysfs_type, fs_type;
+type sysfs_aidler, sysfs_type, fs_type;
+type sysfs_aidlerwl, sysfs_type, fs_type;
+type sysfs_aidlerdd, sysfs_type, fs_type;
+type sysfs_aidleriw, sysfs_type, fs_type;
+type sysfs_inputboostfreq, sysfs_type, fs_type;
+type sysfs_boostms, sysfs_type, fs_type;
+type sysfs_iboostms, sysfs_type, fs_type;
