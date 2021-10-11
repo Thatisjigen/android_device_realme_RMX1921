@@ -14,6 +14,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/realme/RMX1921/RMX1921-vendor.mk)
 
+
+# HIDL 
+$(call inherit-product, $(LOCAL_PATH)/RMX1921-hidl.mk)
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
