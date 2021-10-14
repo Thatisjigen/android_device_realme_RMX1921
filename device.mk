@@ -210,11 +210,8 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xt \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xt \
+    android.hardware.biometrics.fingerprint@2.3-service.xt \
     vendor.oppo.hardware.biometrics.fingerprint@2.1
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/vendor.lineage.biometrics.fingerprint.inscreen.xml:vendor/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # FOD
 TARGET_HAS_FOD := true
