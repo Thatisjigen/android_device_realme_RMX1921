@@ -1,8 +1,7 @@
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.1-service.realme_sdm710",
+    name: "android.hardware.biometrics.fingerprint@2.1-service.xt",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.realme_sdm710.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.realme_sdm710.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.xt.rc"],
     proprietary: true,
     relative_install_path: "hw",
     srcs: [
@@ -16,7 +15,6 @@ cc_binary {
         "libcutils",
         "liblog",
         "libhidlbase",
-        "libhidltransport",
         "libhardware",
         "libutils",
         "libbase",

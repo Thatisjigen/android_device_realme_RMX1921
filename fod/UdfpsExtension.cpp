@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-#include <compositionengine/FodExtension.h>
+#include <compositionengine/UdfpsExtension.h>
 
-uint32_t getFodZOrder(uint32_t z, bool touched) {
-    return touched ? 1090519091 : 1090519089;
+uint32_t getUdfpsZOrder(uint32_t z, bool touched) {
+    return touched ? 1090519091 : z;
 }
 
-uint32_t getFodUsageBits(uint32_t usageBits, bool) {
+uint64_t getUdfpsUsageBits(uint64_t usageBits, bool) {
     return usageBits;
 }
