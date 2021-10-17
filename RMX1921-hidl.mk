@@ -52,6 +52,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.1.vendor \
     android.hardware.drm@1.0.vendor
 
+# Face
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.face@1.0.vendor
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0.vendor \

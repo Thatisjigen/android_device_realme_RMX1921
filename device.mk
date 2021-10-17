@@ -207,6 +207,10 @@ PRODUCT_PACKAGES += \
     RealmeProximityHelper \
     RealmeParts
 
+# Face
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.face@1.0
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xt \
