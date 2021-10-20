@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
 # Soundtrigger
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.1.vendor \
-    android.hardware.soundtrigger@2.2.vendor
+    android.hardware.soundtrigger@2.2.vendor \
+    android.hardware.soundtrigger@2.3.vendor
 
 # Thermal
 PRODUCT_PACKAGES += \

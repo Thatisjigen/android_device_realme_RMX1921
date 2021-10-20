@@ -76,25 +76,6 @@
         <!-- Set it to NONE if LSM directly connects to AFE -->
         <param adm_cfg_profile="DEFAULT" />
     </sound_model_config>
-    <sound_model_config>
-        <param vendor_uuid="9f6ad62a-1f0b-11e7-87c5-40a8f03d3f15" />
-        <param execution_type="WDSP" /> <!-- value: "WDSP" "ADSP" "DYNAMIC" -->
-        <param library="none" />
-        <gcs_usecase>
-            <param uid="0x2" />
-            <param load_sound_model_ids="0x18000001, 0x1, 0x18000102" />
-            <param start_engine_ids="0x18000001, 0x1, 0x18000103" />
-            <param request_detection_ids="0x18000001, 0x4, 0x18000107" />
-            <param custom_config_ids="0x18000001, 0x1, 0x18000106" />
-            <param detection_event_ids="0x18000001, 0x1, 0x00012C29" />
-            <param read_cmd_ids="0x00020013, 0x2, 0x00020015" />
-            <param read_rsp_ids="0x00020013, 0x2, 0x00020016" />
-        </gcs_usecase>
-        <!--  kw_duration is in milli seconds. It is valid only for FTRT
-            transfer mode -->
-        <param capture_keyword="MULAW_raw, FTRT, 4000" />
-        <param client_capture_read_delay="2000" />
-    </sound_model_config>
     <!-- Sound model config for Hotword !-->
     <sound_model_config>
         <param vendor_uuid="68ab2d40-e860-11e3-95ef-0002a5d5c51b" />

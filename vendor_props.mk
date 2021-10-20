@@ -82,6 +82,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.voice.receiver.status=off \
     vendor.voice.path.for.pcm.voip=true
 
+# Audio - Oppo
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.oppo.mm.record.type=0 \
+    sys.oppo.mm.voice.record=0
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.disabled=true \
