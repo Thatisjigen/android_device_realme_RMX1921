@@ -230,7 +230,6 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    FM2 \
     libqcomfm_jni \
     qcom.fmradio
 
@@ -456,6 +455,8 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
+    init.qti.fm.rc \
+    init.qti.fm.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     init.RealmeParts.rc \

@@ -30,6 +30,7 @@ import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.RealmeParts.rc
 import /vendor/etc/init/hw/init.oppo.reserve.rc
+import /vendor/etc/init/hw/init.qti.fm.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

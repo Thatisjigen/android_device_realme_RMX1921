@@ -144,6 +144,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.min.fling_velocity=160 \
     ro.max.fling_velocity=20000
 
+# FM
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.hw.fm.mode=0
+
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
