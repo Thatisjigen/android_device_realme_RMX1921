@@ -29,3 +29,10 @@ allow init init:netlink_route_socket { read getattr };
 
 allow init sysfs_battery_supply:file setattr;
 allow init adsprpcd_file:file mounton;
+
+allow init sysfs_dm:dir relabelfrom;
+allow init sysfs_dm:file relabelfrom;
+
+allow init {
+    sysfs_io_sched_tuneable
+}:file { setattr w_file_perms };
