@@ -24,6 +24,7 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 30 29 28
 
 # Enable updating of APEXes
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
