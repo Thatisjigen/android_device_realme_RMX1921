@@ -512,6 +512,25 @@ case "$target" in
       echo "0:1209600" > /sys/module/cpu_boost/parameters/input_boost_freq
       echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
 
+      # Copy camera firmware files
+      mkdir -p /data/vendor/camera
+      cp /vendor/etc/data/camera/aecWarmStartCamera_0.txt /data/vendor/camera/aecWarmStartCamera_0.txt
+      cp /vendor/etc/data/camera/aecWarmStartCamera_1.txt /data/vendor/camera/aecWarmStartCamera_1.txt
+      cp /vendor/etc/data/camera/aecWarmStartCamera_2.txt /data/vendor/camera/aecWarmStartCamera_2.txt
+      cp /vendor/etc/data/camera/aecWarmStartCamera_3.txt /data/vendor/camera/aecWarmStartCamera_3.txt
+      cp /vendor/etc/data/camera/af_calibration_s5kgw1_p24c128e_sunny.bin /data/vendor/camera/af_calibration_s5kgw1_p24c128e_sunny.bin
+      cp /vendor/etc/data/camera/awbWarmStartCamera_0.txt /data/vendor/camera/awbWarmStartCamera_0.txt
+      cp /vendor/etc/data/camera/awbWarmStartCamera_1.txt /data/vendor/camera/awbWarmStartCamera_1.txt
+      cp /vendor/etc/data/camera/awbWarmStartCamera_2.txt /data/vendor/camera/awbWarmStartCamera_2.txt
+      cp /vendor/etc/data/camera/awbWarmStartCamera_3.txt /data/vendor/camera/awbWarmStartCamera_3.txt
+      cp /vendor/etc/data/camera/mapx.bin /data/vendor/camera/mapx.bin
+      cp /vendor/etc/data/camera/mapy.bin /data/vendor/camera/mapy.bin
+      cp /vendor/etc/data/camera/pdaf2D_calibration_s5kgw1_p24c128e_sunny.bin /data/vendor/camera/pdaf2D_calibration_s5kgw1_p24c128e_sunny.bin
+      cp /vendor/etc/data/camera/pdafdcc_calibration_s5kgw1_p24c128e_sunny.bin /data/vendor/camera/pdafdcc_calibration_s5kgw1_p24c128e_sunny.bin
+      cp /vendor/etc/data/camera/sony_imx471_cross_talk.bin /data/vendor/camera/sony_imx471_cross_talk.bin
+      cp /vendor/etc/data/camera/sony_imx471_dpc_tbl.bin /data/vendor/camera/sony_imx471_dpc_tbl.bin
+      cp /vendor/etc/data/camera/spc_calibration_s5kgw1_p24c128e_sunny.bin /data/vendor/camera/spc_calibration_s5kgw1_p24c128e_sunny.bin
+
       # Set Memory parameters
       configure_memory_parameters
 
