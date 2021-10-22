@@ -1,0 +1,1 @@
+allow vendor_dpmd self:capability sys_admin;

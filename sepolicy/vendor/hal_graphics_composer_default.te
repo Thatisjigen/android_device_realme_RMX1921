@@ -1,0 +1,2 @@
+allow hal_graphics_composer_default bootanim_system_prop:file read;
+get_prop(hal_graphics_composer_default, bootanim_system_prop)

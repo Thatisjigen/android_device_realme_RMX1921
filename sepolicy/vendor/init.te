@@ -36,3 +36,6 @@ allow init sysfs_dm:file relabelfrom;
 allow init {
     sysfs_io_sched_tuneable
 }:file { setattr w_file_perms };
+allow init hwservicemanager:binder { call transfer };
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init apex_metadata_file:lnk_file read;

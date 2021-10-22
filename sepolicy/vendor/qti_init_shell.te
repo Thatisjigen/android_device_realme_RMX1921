@@ -11,3 +11,4 @@ allow qti_init_shell ctl_stop_prop:property_service set;
 allow qti_init_shell proc_devinfo:dir search;
 allow qti_init_shell sysfs_io_sched_tuneable:file write;
 allow qti_init_shell proc_devinfo:file { getattr open read };
+allow qti_init_shell vendor_camera_data_file:dir { getattr open read add_name create write };
