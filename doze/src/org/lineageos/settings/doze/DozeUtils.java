@@ -41,9 +41,11 @@ public final class DozeUtils {
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
     protected static final String GESTURE_RAISE_TO_WAKE = "gesture_raise_to_wake";
     protected static final String GESTURE_SMART_WAKE_KEY = "gesture_smart_wake";
+    protected static final String GESTURE_FOD_PROX_KEY = "prox_fod_wake";
     private static final String TAG = "DozeUtils";
     private static final boolean DEBUG = false;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
+    private static final String allow_FOD = "/proc/touchpanel/fod_proxcheck";
 
     public static void startService(Context context) {
         if (DEBUG) Log.d(TAG, "Starting service");
@@ -61,7 +63,12 @@ public final class DozeUtils {
         if (isDozeEnabled(context) && !isAlwaysOnEnabled(context) && sensorsEnabled(context)) {
             startService(context);
         } else {
+            if (isAlwaysOnEnabled(context))
+                stopService(context);
+            else {
+            Utils.writeValue(allow_FOD, "0");
             stopService(context);
+            }
         }
     }
 
@@ -121,7 +128,11 @@ public final class DozeUtils {
     }
 
     public static boolean sensorsEnabled(Context context) {
-        return isPickUpEnabled(context) || isPocketGestureEnabled(context);
+        return isPickUpEnabled(context) || isPocketGestureEnabled(context) || isFODProxEnabled(context);
+    }
+
+    protected static boolean isFODProxEnabled(Context context) {
+        return isGestureEnabled(context, GESTURE_FOD_PROX_KEY);
     }
 
     protected static Sensor getSensor(SensorManager sm, String type) {

@@ -10,3 +10,7 @@ allow system_server sysfs_rtc:file { open read };
 dontaudit system_server default_android_hwservice:hwservice_manager find;
 dontaudit system_server sysfs:file read;
 allow system_server app_zygote:process { getpgid };
+# Sof
+allow system_server proc_oppo_fp:file r_file_perms;
+allow system_server proc_touchpanel:dir search;
+allow system_server proc_touchpanel:file rw_file_perms;
