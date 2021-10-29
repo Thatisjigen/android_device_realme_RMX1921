@@ -96,4 +96,4 @@ public class FODProxCheck implements SensorEventListener {
             mSensorManager.unregisterListener(this, mSensor);
         });
     }
-} 
+}
