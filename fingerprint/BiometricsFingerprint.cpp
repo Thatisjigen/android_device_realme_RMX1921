@@ -17,9 +17,6 @@
 #define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.3-service.xt"
 #define FP_PRESS_NOTIFY "/sys/kernel/oppo_display/notify_fppress"
 #define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_hbm"
-#define NOTIFY_BLANK_PATH "/sys/kernel/oppo_display/notify_panel_blank"
-#define AOD_MODE_PATH "/sys/kernel/oppo_display/aod_light_mode_set"
-#define DOZE_STATUS "/proc/touchpanel/DOZE_STATUS"
 #define ON 1
 #define OFF 0
 
@@ -51,15 +48,6 @@ template <typename T>
 static inline void set(const std::string& path, const T& value) {
     std::ofstream file(path);
     file << value;
-}
-
-template <typename T>
-static inline T get(const std::string& path, const T& def) {
-    std::ifstream file(path);
-    T result;
-
-    file >> result;
-    return file.fail() ? def : result;
 }
 
 static bool receivedCancel;
@@ -131,15 +119,8 @@ public:
     }
 
     Return<void> onTouchDown(uint64_t deviceId) { 
-        if(get(DOZE_STATUS, OFF)) {
-            //set(NOTIFY_BLANK_PATH, ON);
-            set(AOD_MODE_PATH, ON);
-            set(DIMLAYER_PATH, ON);
-            set(FP_PRESS_NOTIFY, ON);
-        }else{
-            set(DIMLAYER_PATH, ON);
-            set(FP_PRESS_NOTIFY, ON);
-        }
+        set(DIMLAYER_PATH, ON);
+        set(FP_PRESS_NOTIFY, ON);
         return Void();
     }
 
