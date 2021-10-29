@@ -60,14 +60,11 @@ public final class DozeUtils {
     }
 
     public static void checkDozeService(Context context) {
-        if (isDozeEnabled(context) && !isAlwaysOnEnabled(context) && sensorsEnabled(context)) {
+        if (isDozeEnabled(context) && sensorsEnabled(context)) {
             startService(context);
         } else {
-            if (isAlwaysOnEnabled(context))
+            if (!isAlwaysOnEnabled(context)){
                 stopService(context);
-            else {
-            Utils.writeValue(allow_FOD, "0");
-            stopService(context);
             }
         }
     }
@@ -120,7 +117,7 @@ public final class DozeUtils {
     }
 
     protected static boolean isPocketGestureEnabled(Context context) {
-        return isGestureEnabled(context, GESTURE_POCKET_KEY);
+        return isGestureEnabled(context, GESTURE_POCKET_KEY)||isAlwaysOnEnabled(context);
     }
 
     protected static boolean isSmartWakeEnabled(Context context) {
@@ -132,7 +129,7 @@ public final class DozeUtils {
     }
 
     protected static boolean isFODProxEnabled(Context context) {
-        return isGestureEnabled(context, GESTURE_FOD_PROX_KEY);
+        return isGestureEnabled(context, GESTURE_FOD_PROX_KEY)||isAlwaysOnEnabled(context);
     }
 
     protected static Sensor getSensor(SensorManager sm, String type) {
