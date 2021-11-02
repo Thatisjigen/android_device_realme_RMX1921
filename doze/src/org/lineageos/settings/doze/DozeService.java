@@ -42,9 +42,9 @@ public class DozeService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                onDisplayOn(context);
+                onDisplayOn();
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                onDisplayOff(context);
+                onDisplayOff();
             }
         }
     };
@@ -85,7 +85,7 @@ public class DozeService extends Service {
         return null;
     }
 
-    private void onDisplayOn(Context context) {
+    private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
         if (DozeUtils.isPickUpEnabled(this)) {
             mTiltSensor.disable();
@@ -96,19 +96,14 @@ public class DozeService extends Service {
         if (DozeUtils.isPocketGestureEnabled(this)) {
             mProximitySensor.disable();
         }
-        if (DozeUtils.isAlwaysOnEnabled(context)){
-                mFODProxCheck.disable();
-                }
         if (DozeUtils.isFODProxEnabled(this)) {
             mFODProxCheck.disable();
         }else
-        if (!DozeUtils.isAlwaysOnEnabled(context)){
             Utils.writeValue(allow_FOD, "0");
-            }
 
     }
 
-    private void onDisplayOff(Context context) {
+    private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
         if (DozeUtils.isPickUpEnabled(this)) {
             mTiltSensor.enable();
@@ -119,14 +114,9 @@ public class DozeService extends Service {
         if (DozeUtils.isPocketGestureEnabled(this)) {
             mProximitySensor.enable();
         }
-        if (DozeUtils.isAlwaysOnEnabled(context)){
-                mFODProxCheck.enable();
-                }
         if (DozeUtils.isFODProxEnabled(this)) {
             mFODProxCheck.enable();
         }else
-        if (!DozeUtils.isAlwaysOnEnabled(context)){
             Utils.writeValue(allow_FOD, "1");
-            }
     }
 }
