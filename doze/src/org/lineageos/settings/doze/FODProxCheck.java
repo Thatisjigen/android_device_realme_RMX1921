@@ -68,12 +68,6 @@ public class FODProxCheck implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
         isNear = event.values[0] < mSensor.getMaximumRange();
-        if (isNear) {
-            resetTap = true;
-        } else if (resetTap) {
-            resetTap = false;
-            DozeUtils.launchDozePulse(mContext);
-            }
         Utils.writeValue(getFile(), isNear ? "0" : "1");
     }
 
@@ -96,4 +90,4 @@ public class FODProxCheck implements SensorEventListener {
             mSensorManager.unregisterListener(this, mSensor);
         });
     }
-}
+} 
