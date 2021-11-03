@@ -531,6 +531,9 @@ case "$target" in
       cp /vendor/etc/data/camera/sony_imx471_dpc_tbl.bin /data/vendor/camera/sony_imx471_dpc_tbl.bin
       cp /vendor/etc/data/camera/spc_calibration_s5kgw1_p24c128e_sunny.bin /data/vendor/camera/spc_calibration_s5kgw1_p24c128e_sunny.bin
 
+      # Remove settings cache, avoids derps after dirty flash
+      rm -rf /data/system/package_cache
+
       # Set Memory parameters
       configure_memory_parameters
 
