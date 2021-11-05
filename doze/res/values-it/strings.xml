@@ -28,6 +28,9 @@
     <!-- Device specific settings -->
     <string name="device_settings_app_name">Impostazioni avanzate</string>
 
+    <!-- Ambient settings -->
+    <string name="ambient_enable">Usa il display ambient</string>
+
     <!-- Ambient Display -->
     <string name="ambient_display_title">Display ambient</string>
     <string name="ambient_display_enable_title">Display ambient</string>
