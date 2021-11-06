@@ -53,6 +53,10 @@ on boot
     chown system system /sys/kernel/oppo_display/dimlayer_hbm
 
 service fps_hal.xt /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.xt
+    interface android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint default
+    interface android.hardware.biometrics.fingerprint@2.2::IBiometricsFingerprint default
+    interface android.hardware.biometrics.fingerprint@2.3::IBiometricsFingerprint default
+    interface vendor.oppo.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint default
     class late_start
     user system
     group system input uhid
