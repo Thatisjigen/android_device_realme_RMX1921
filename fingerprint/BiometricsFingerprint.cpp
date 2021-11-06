@@ -35,7 +35,7 @@ namespace fingerprint {
 namespace V2_3 {
 namespace implementation {
 
-BiometricsFingerprint::BiometricsFingerprint() {
+BiometricsFingerprint::BiometricsFingerprint() : isEnrolling(false) {
     for(int i=0; i<10; i++) {
         mOppoBiometricsFingerprint = vendor::oppo::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint::tryGetService();
         if(mOppoBiometricsFingerprint != nullptr) break;
@@ -80,8 +80,6 @@ public:
         ALOGE("onAuthenticated %lu %u %u", deviceId, fingerId, groupId);
         if(mClientCallback != nullptr)
             mClientCallback->onAuthenticated(deviceId, fingerId, groupId, token);
-        set(FP_PRESS_NOTIFY, OFF);
-        set(DIMLAYER_PATH, OFF);
         return Void();
     }
 
@@ -114,12 +112,10 @@ public:
 
     Return<void> onTouchUp(uint64_t deviceId) {
         set(FP_PRESS_NOTIFY, OFF);
-        set(DIMLAYER_PATH, OFF);
         return Void();
     }
 
-    Return<void> onTouchDown(uint64_t deviceId) { 
-        set(DIMLAYER_PATH, ON);
+    Return<void> onTouchDown(uint64_t deviceId) {
         set(FP_PRESS_NOTIFY, ON);
         return Void();
     }
@@ -203,17 +199,21 @@ Return<RequestStatus> BiometricsFingerprint::OppoToAOSPRequestStatus(vendor::opp
 
 Return<uint64_t> BiometricsFingerprint::preEnroll()  {
     ALOGE("preEnroll");
+    setFingerprintScreenState(true);
     return mOppoBiometricsFingerprint->preEnroll();
 }
 
 Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69>& hat,
     uint32_t gid, uint32_t timeoutSec)  {
     ALOGE("enroll");
+    isEnrolling = true;
     return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->enroll(hat, gid, timeoutSec));
 }
 
 Return<RequestStatus> BiometricsFingerprint::postEnroll()  {
     ALOGE("postEnroll");
+    isEnrolling = false;
+    setFingerprintScreenState(isEnrolling);
     return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->postEnroll());
 }
 
@@ -227,6 +227,10 @@ Return<RequestStatus> BiometricsFingerprint::cancel()  {
        mOppoClientCallback->onError(mOppoBiometricsFingerprint->setNotify(mOppoClientCallback),
            vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintError::ERROR_CANCELED,
            0);
+    if (isEnrolling)
+        isEnrolling = false;
+    else 
+        setFingerprintScreenState(false);
     return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->cancel());
 }
 
@@ -271,6 +275,10 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId, uint32_t gid)  {
     ALOGE("auth");
+    RequestStatus status = OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->authenticate(operationId, gid));
+    if (status == RequestStatus::SYS_OK) {
+        setFingerprintScreenState(true);
+    }
     return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->authenticate(operationId, gid));
 }
 
@@ -284,8 +292,15 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, floa
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
-    //moved to onTouchUp
     return Void();
+}
+
+void BiometricsFingerprint::setFingerprintScreenState(const bool on) {
+    mOppoBiometricsFingerprint->setScreenState(
+        on ? vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintScreenState::FINGERPRINT_SCREEN_ON :
+            vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintScreenState::FINGERPRINT_SCREEN_OFF
+        );
+    set(DIMLAYER_PATH, on ? ON: OFF);
 }
 
 }  // namespace implementation
