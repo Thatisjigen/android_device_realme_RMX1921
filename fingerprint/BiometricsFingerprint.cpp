@@ -17,6 +17,9 @@
 #define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.3-service.xt"
 #define FP_PRESS_NOTIFY "/sys/kernel/oppo_display/notify_fppress"
 #define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_hbm"
+#define PS_MASK "/proc/touchpanel/prox_mask"
+#define AOD_PRESS "/proc/touchpanel/fod_aod_pressed"
+#define DOZING "/proc/touchpanel/DOZE_STATUS"
 #define ON 1
 #define OFF 0
 
@@ -48,6 +51,15 @@ template <typename T>
 static inline void set(const std::string& path, const T& value) {
     std::ofstream file(path);
     file << value;
+}
+
+template <typename T>
+static inline T get(const std::string& path, const T& def) {
+    std::ifstream file(path);
+    T result;
+
+    file >> result;
+    return file.fail() ? def : result;
 }
 
 static bool receivedCancel;
@@ -114,11 +126,17 @@ public:
     }
 
     Return<void> onTouchUp(uint64_t deviceId) {
+        set(PS_MASK, OFF);
+        set(AOD_PRESS, OFF);
         set(FP_PRESS_NOTIFY, OFF);
         return Void();
     }
 
     Return<void> onTouchDown(uint64_t deviceId) {
+        if (get(DOZING, OFF)){
+            set(AOD_PRESS, ON);
+            set(PS_MASK, ON);
+        }
         set(FP_PRESS_NOTIFY, ON);
         return Void();
     }
@@ -290,7 +308,6 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
-    //moved to onTouchDown as it gets called before
     return Void();
 }
 
