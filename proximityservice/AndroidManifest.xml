@@ -25,6 +25,8 @@
         <service android:name="co.hyper.proximityservice.RealmeProximityHelperService"
                  android:permission="RealmeProximityHelperService">
         </service>
-
+        <service android:name="co.hyper.proximityservice.FodKeyguardAssistService"
+                 android:permission="RealmeProximityHelperService">
+        </service>
     </application>
 </manifest>
