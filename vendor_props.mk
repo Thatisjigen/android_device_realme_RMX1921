@@ -189,6 +189,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
     debug.sf.latch_unsignaled=1 \
+    debug.sf.disable_backpressure=0 \
     debug.sf.enable_gl_backpressure=1 \
     ro.surface_flinger.has_wide_color_display=true \
     ro.surface_flinger.use_color_management=true \
