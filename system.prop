@@ -87,6 +87,10 @@ persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=0
 debug.hwui.renderer=skiavk
 debug.cpurend.vsync=false
+sdm.debug.disable_inline_rotator=1
+vendor.display.disable_rotator_downscale=1
+sdm.debug.disable_inline_rotator_secure=1
+debug.performance.tuning=1
 
 # IMS
 persist.vendor.ims.disableUserAgent=0
