@@ -298,11 +298,8 @@ on post-fs-data
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
 
-    # Create folder of camera
+    #Create folder of camera
     mkdir /data/vendor/camera 0777 root system
-
-    # Create package cache again
-    mkdir /data/system/package_cache 0666 system system
 
     # Create directory for tftp
     mkdir /data/vendor/tombstones/rfs 0771 system system
