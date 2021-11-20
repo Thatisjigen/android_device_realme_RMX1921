@@ -67,18 +67,18 @@ public class FodHelper implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-    if (DEBUG) Log.d(TAG, "Event");
-    if (event.values[0] != 0){
+        if (DEBUG) Log.d(TAG, "Event");
+        if (event.values[0] != 0){
             if (DEBUG) Log.d(TAG, "Event");
-                if (FileHelper.getFileValueAsBoolean(DOZING, false)){
-                    if(FileHelper.getFileValueAsBoolean(AOD_STATUS, false))
-                        if(FileHelper.getFileValueAsBoolean(AOD_PRESSED, false)){
-                            mWakeLock.acquire();
-                            DisplayStateHelper.launchDozePulse(mContext);
-                            FileHelper.writeValue(AOD_PRESSED, "0");
-                            mWakeLock.release();
-                            }
-                }
+            if (FileHelper.getFileValueAsBoolean(DOZING, false)){
+                if(FileHelper.getFileValueAsBoolean(AOD_STATUS, false))
+                    if(FileHelper.getFileValueAsBoolean(AOD_PRESSED, false)){
+                        mWakeLock.acquire();
+                        DisplayStateHelper.launchDozePulse(mContext);
+                        FileHelper.writeValue(AOD_PRESSED, "0");
+                        mWakeLock.release();
+                        }
+            }
         }
     }
 
