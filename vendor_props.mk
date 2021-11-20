@@ -127,7 +127,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio_fx.current=dolby \
     ro.vendor.dolby.dax.version=DS1_2.2.0.0_r1 \
-    vendor.audio.dolby.ds2.enabled=false \
+    vendor.audio.dolby.ds2.enabled=true \
     vendor.audio.dolby.ds2.hardbypass=false
 
 # DRM
