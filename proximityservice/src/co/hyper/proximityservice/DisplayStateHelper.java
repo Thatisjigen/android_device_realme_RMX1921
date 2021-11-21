@@ -38,6 +38,7 @@ public class DisplayStateHelper implements DisplayListener {
      private Context mcontext;
      private InfraredSensor mFakeProximity;
      private FodHelper mFodHelper;
+     private AodProxHelper mAodProxHelper;
      private static final String AOD_STATUS = "/proc/touchpanel/fod_aod_listener";//this is almost useless, used for debug mostly and left there cause "Why not?", I may need it later for additional purposes
      private static final String DOZING = "/proc/touchpanel/DOZE_STATUS";
      private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
@@ -47,6 +48,7 @@ public class DisplayStateHelper implements DisplayListener {
          mcontext = context;
          mFakeProximity = new InfraredSensor(context);
          mFodHelper = new FodHelper(context);//register a proximity sensor so that it will poll for pressed status on fod and pulse once pressed to trigger the display "ON" state
+         mAodProxHelper = new AodProxHelper(context);//register amd sensor so that it will pulse aod once extracted from pocket
      }
 
      @Override
@@ -66,6 +68,7 @@ public class DisplayStateHelper implements DisplayListener {
            if (DEBUG) Log.d(TAG, "Display Dozing, Attempting to register fod sensor listener");
            FileHelper.writeValue(AOD_STATUS, "1");
            mFodHelper.enable();
+           mAodProxHelper.enable();
            if (!FileHelper.getFileValueAsBoolean(DOZING, false)){
                 if (displayId == Display.DEFAULT_DISPLAY && isDefaultDisplayOff(mcontext)){
                         if (DEBUG) Log.d(TAG, "Display OFF, Attempting to register proximity sensor");
@@ -93,6 +96,7 @@ public class DisplayStateHelper implements DisplayListener {
         mcontext.getSystemService(DisplayManager.class).unregisterDisplayListener(this);
         mFakeProximity.disable();
         mFodHelper.disable();
+        mAodProxHelper.disable();
     }
 
     private static boolean isDefaultDisplayOff(Context context) {
@@ -102,6 +106,7 @@ public class DisplayStateHelper implements DisplayListener {
 
     public void disableSensors() {
         mFodHelper.disable();
+        mAodProxHelper.disable();
     }
 
     protected static void launchDozePulse(Context context) {
