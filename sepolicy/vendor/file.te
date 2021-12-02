@@ -56,6 +56,7 @@ type sysfs_aidleriw, sysfs_type, fs_type;
 type sysfs_inputboostfreq, sysfs_type, fs_type;
 type sysfs_boostms, sysfs_type, fs_type;
 type sysfs_iboostms, sysfs_type, fs_type;
+type sysfs_iboostfreq, sysfs_type, fs_type;
 
 type proc_vibration_file, sysfs_type, fs_type;
 type sysfs_io_sched_tuneable, fs_type, sysfs_type;

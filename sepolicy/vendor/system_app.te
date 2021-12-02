@@ -32,6 +32,7 @@ allow system_app {
     sysfs_inputboostfreq
     sysfs_boostms
     sysfs_iboostms
+    sysfs_iboostfreq
     proc_vibration_file
 }:file rw_file_perms;
 allow system_app sysfs_kgsl:lnk_file { getattr open read write };

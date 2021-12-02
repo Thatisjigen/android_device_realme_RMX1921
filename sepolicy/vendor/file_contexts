@@ -84,6 +84,8 @@
 /sys/module/adreno_idler/parameters/adreno_idler_downdifferential                    u:object_r:sysfs_aidlerdd:s0
 /sys/module/adreno_idler/parameters/adreno_idler_idlewait                u:object_r:sysfs_aidleriw:s0
 /sys/module/cpu_input_boost/parameters/input_boost_duration                      u:object_r:sysfs_iboostms:s0
+/sys/module/cpu_input_boost/parameters/input_boost_freq_big                      u:object_r:sysfs_iboostfreq:s0
+/sys/module/cpu_input_boost/parameters/input_boost_freq_little                      u:object_r:sysfs_iboostfreq:s0
 
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.2-service-qti                                  u:object_r:hal_power_default_exec:s0
