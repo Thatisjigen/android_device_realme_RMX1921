@@ -19,8 +19,8 @@ $(call inherit-product-if-exists, vendor/realme/RMX1921/RMX1921-vendor.mk)
 $(call inherit-product, $(LOCAL_PATH)/RMX1921-hidl.mk)
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 30 29 28
+PRODUCT_TARGET_VNDK_VERSION := 30
+PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
 # Enable updating of APEXes
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
