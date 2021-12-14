@@ -74,10 +74,6 @@
 /dev/block/platform/soc/1d84000.ufshc/by-name/opporeserve[0-9]                                                u:object_r:modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/oppo_sec                                                u:object_r:modem_efs_partition_device:s0
 
-# Perf
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.perf@[0-9]+\.[0-9]+-service       u:object_r:hal_perf_default_exec:s0
-/(vendor|system/vendor)/lib(64)?/vendor\.qti\.hardware\.perf@[0-9]+\.[0-9]+\.so    u:object_r:same_process_hal_file:s0
-
 # PerfSettings
 /sys/module/adreno_idler/parameters/adreno_idler_active                      u:object_r:sysfs_aidler:s0
 /sys/module/adreno_idler/parameters/adreno_idler_idleworkload                u:object_r:sysfs_aidlerwl:s0
