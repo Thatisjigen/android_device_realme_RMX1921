@@ -202,7 +202,8 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0 \
     android.hardware.drm@1.1 \
     android.hardware.drm@1.2 \
-    android.hardware.drm@1.3
+    android.hardware.drm@1.3 \
+    android.hardware.drm@1.4
 
 # RealmeParts
 PRODUCT_PACKAGES += \
