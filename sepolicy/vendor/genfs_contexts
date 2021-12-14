@@ -25,19 +25,19 @@ genfscon sysfs /devices/platform/GFSH0007:00/rtc u:object_r:sysfs_rtc:s0
 # FPS info
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps        u:object_r:sysfs_graphics:s0
 
-genfscon sysfs /sys/devices/platform/soc/62400000.qcom,lpass/subsys[0-9]/restart_level        u:object_r:sysfs_restart:s0
-genfscon sysfs /sys/bus/msm_subsys/devices/subsys[0-9]/restart_level        u:object_r:sysfs_restart:s0
+genfscon sysfs /devices/platform/soc/62400000.qcom,lpass/subsys[0-9]/restart_level        u:object_r:sysfs_restart:s0
+genfscon sysfs /bus/msm_subsys/devices/subsys[0-9]/restart_level        u:object_r:sysfs_restart:s0
 
 # Realmeparts
 genfscon sysfs /kernel/sound_control/headphone_gain                u:object_r:sysfs_hgain:s0
 genfscon sysfs /kernel/sound_control/mic_gain                      u:object_r:sysfs_mgain:s0
-genfscon sysfs /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor                u:object_r:sysfs_biggovernor:s0
-genfscon sysfs /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor                      u:object_r:sysfs_littlegovernor:s0
-genfscon sysfs /sys/module/cpu_boost/parameters/input_boost_freq                u:object_r:sysfs_inputboostfreq:s0
-genfscon sysfs /sys/module/cpu_boost/parameters/input_boost_ms                      u:object_r:sysfs_boostms:s0
 
 genfscon sysfs /devices/platform/soc/soc:qcom,gpubw             u:object_r:sysfs_devfreq:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,cpubw             u:object_r:sysfs_devfreq:s0
 
 # Kernelspace Battery saver
 genfscon sysfs /module/battery_saver/parameters/enabled                  u:object_r:sysfs_battery_saver:s0
+
+genfscon proc /sys/kernel/sched_boost        u:object_r:proc_sched_boost:s0
+
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state                  u:object_r:sysfs_idle_state:s0
