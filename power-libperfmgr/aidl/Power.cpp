@@ -168,11 +168,7 @@ ndk::ScopedAStatus Power::setMode(Mode type, bool enabled) {
             [[fallthrough]];
         case Mode::EXPENSIVE_RENDERING:
             [[fallthrough]];
-        case Mode::INTERACTIVE:
-            [[fallthrough]];
         case Mode::DEVICE_IDLE:
-            [[fallthrough]];
-        case Mode::DISPLAY_INACTIVE:
             [[fallthrough]];
         case Mode::AUDIO_STREAMING_LOW_LATENCY:
             [[fallthrough]];
@@ -217,8 +213,6 @@ ndk::ScopedAStatus Power::setBoost(Boost type, int32_t durationMs) {
             }
             mInteractionHandler->Acquire(durationMs);
             break;
-        case Boost::DISPLAY_UPDATE_IMMINENT:
-            [[fallthrough]];
         case Boost::ML_ACC:
             [[fallthrough]];
         case Boost::AUDIO_LAUNCH:
