@@ -22,7 +22,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -43,7 +42,6 @@ public class AodProxHelper implements SensorEventListener {
     private Context mContext;
     private ExecutorService mExecutorService;
     private PowerManager mPowerManager;
-    private WakeLock mWakeLock;
 
     private long mEntryTimestamp;
 
@@ -52,7 +50,6 @@ public class AodProxHelper implements SensorEventListener {
         mSensorManager = mContext.getSystemService(SensorManager.class);
         mSensor = getSensor(mSensorManager, "qti.sensor.move_detect");
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -73,9 +70,7 @@ public class AodProxHelper implements SensorEventListener {
         mEntryTimestamp = SystemClock.elapsedRealtime();
 
         if (event.values[0] != 0) {
-            mWakeLock.acquire();
             mPowerManager.wakeUp(SystemClock.uptimeMillis(), PowerManager.WAKE_REASON_GESTURE, TAG);
-            mWakeLock.release();
         }
     }
 
