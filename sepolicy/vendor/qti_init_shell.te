@@ -14,5 +14,4 @@ allow qti_init_shell proc_devinfo:file { getattr open read };
 allow qti_init_shell vendor_camera_data_file:dir { getattr open read add_name search create write };
 allow qti_init_shell vendor_camera_data_file:file create_file_perms;
 allow qti_init_shell vendor_camera_data_file:file { open read write };
-allow qti_init_shell proc_sched_boost:dir r_dir_perms;
-allow qti_init_shell proc_sched_boost:file rw_file_perms;
+

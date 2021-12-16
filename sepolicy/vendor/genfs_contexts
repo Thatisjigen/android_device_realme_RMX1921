@@ -38,6 +38,4 @@ genfscon sysfs /devices/platform/soc/soc:qcom,cpubw             u:object_r:sysfs
 # Kernelspace Battery saver
 genfscon sysfs /module/battery_saver/parameters/enabled                  u:object_r:sysfs_battery_saver:s0
 
-genfscon proc /sys/kernel/sched_boost        u:object_r:proc_sched_boost:s0
-
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state                  u:object_r:sysfs_idle_state:s0

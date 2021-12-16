@@ -65,5 +65,4 @@ type sysfs_io_sched_tuneable, fs_type, sysfs_type;
 type sysfs_battery_saver, fs_type, sysfs_type;
 
 type sysfs_idle_state, fs_type, sysfs_type;
-type proc_sched_boost, fs_type, proc_type;
 type sysfs_devfreq_state, fs_type, sysfs_type;
