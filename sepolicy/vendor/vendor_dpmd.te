@@ -1,1 +1,2 @@
 allow vendor_dpmd self:capability sys_admin;
+allow vendor_dpmd diag_device:chr_file { read write open };

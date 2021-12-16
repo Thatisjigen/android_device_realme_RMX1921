@@ -6,3 +6,4 @@ allow rild opporadio_hwservice:hwservice_manager { add find };
 set_prop(rild, oppo_debug_prop)
 dontaudit rild cache_file:dir { search getattr };
 allow rild vendor_pd_locater_dbg_prop:file { read open getattr };
+allow rild diag_device:chr_file { read write open };
