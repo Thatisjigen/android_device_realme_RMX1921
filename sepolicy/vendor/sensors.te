@@ -1,0 +1,4 @@
+allow sensors diag_device:chr_file { read write };
+allow sensors sensors_persist_file:fifo_file { read open getattr };
+allow sensors sensors_prop:file { read open getattr };
+allow sensors diag_device:chr_file { open };

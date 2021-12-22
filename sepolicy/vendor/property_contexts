@@ -80,4 +80,10 @@ persist.ims.regmanager.mode                  u:object_r:oppo_debug_prop:s0
 oppo.wifirftest.enable                  u:object_r:oppo_debug_prop:s0
 persist.usb.hvdcp.detect                  u:object_r:oppo_debug_prop:s0
 ro.oppo.nw.singlecard                  u:object_r:oppo_debug_prop:s0
+
+# Misc
+zeroth.debuglog.logmask                  u:object_r:oppo_debug_prop:s0
 ro.logdumpd.enabled                  u:object_r:oppo_debug_prop:s0
+ro.build.display.full_id                  u:object_r:oppo_debug_prop:s0
+vendor.vold.serialno                  u:object_r:oppo_debug_prop:s0
+persist.vendor.data.qmipriod_load                  u:object_r:oppo_debug_prop:s0

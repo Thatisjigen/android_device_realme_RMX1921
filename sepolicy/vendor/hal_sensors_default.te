@@ -23,3 +23,4 @@ vndbinder_use(hal_sensors_default);
 
 allow hal_sensors_default sysfs_ssr:file r_file_perms;
 allow hal_sensors_default diag_device:chr_file { read write open };
+allow hal_sensors_default diag_device:chr_file { ioctl };
