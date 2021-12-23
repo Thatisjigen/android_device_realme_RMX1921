@@ -2852,7 +2852,7 @@
     </path>
 
     <path name="mmap-playback bt-sco-wb">
-        <ctl name="BT SampleRate" value="16000" />
+        <ctl name="BT SampleRate" value="KHZ_16" />
         <path name="mmap-playback bt-sco" />
     </path>
 
