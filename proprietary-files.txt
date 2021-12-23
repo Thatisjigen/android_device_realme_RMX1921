@@ -104,31 +104,19 @@ vendor/firmware/dbmd4_va_fw.bin|7faec22c456d02bae0aa9bc6873cd0d571d1437c
 vendor/firmware/tfa98xx_19651.cnt|83a5910185291ce60a0f41dcfd6653fc532840af
 vendor/firmware/voice_amodel.bin|9504fa17c9729e3f8480f05c7c664c0555d6189b
 
-# Bluetooth - Q
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|3f90eadbbb611fc553fca41c9b789e51ba3a9960
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
-vendor/lib/btaudio_offload_if.so|9a63108ebf7c6a0ff9b4c9df5b192cd0bba9a38f
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|1a3742291766b8822618aa8d68b48d55168401fa
-vendor/lib/hw/audio.bluetooth_qti.default.so|04f4457fe34ec76f17cba67622b882cfc2d1e5f1
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|123e291be3141040c206efb22befe05339806cf4
-vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so|6f9f0f1a9bbd14682caf825844cf652adb7b8f4b
-vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|18c77d3680aac7f7ad512ba528506444be140170
-vendor/lib/libbluetooth_audio_session_qti.so|50bf0341545fbd9831b0021db8cdf5c4624baddb
-vendor/lib/libbtnv.so|c5c607036bb1490fa01ef715f88317222c815707
-vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so|fabaa1cae55bad3beac54183848947da5e35d53d
-vendor/lib64/btaudio_offload_if.so|20fa514980f65c0ef13f153933bdc23defe2c269
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|c73850555462df00f41d2e27dc347900f2b2a4d1
-vendor/lib64/hw/audio.bluetooth_qti.default.so|e30f8a19da414d8539955edee2adabc6f7d9f921
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|818611b7c5b563c0359749cfcb8dd78575939c20
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so|384b6ceca9703c6f2fee5edc21947fdd6fdcc8d1
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|4995571288da93036acbab6d052ec3dbeb90641d
-vendor/lib64/libbluetooth_audio_session_qti.so|a794f1d404fb8a60f16969c234e624c5d13133bd
-vendor/lib64/libbtnv.so|b427132f5f1d7ab72dd8e07efe37c3c5ed01e0a3
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|f633dc95faae8322c5f52a13caa4560bbb3b9930
-
-# Bluetooth (aptX) - from crosshatch - QQ3A.200605.001
+# Bluetooth - from bonito 12-SQ1A.211205.008-7888514
 system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|d1ef41d5c039d34c7a9066effeccdfcef4555c37
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|d5fcb9c2cf5538b9c946b9263b144e714433a578
+vendor/lib/btaudio_offload_if.so|e76f80f07de84c2f41d174b484cff03e0b40fbef
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|a76ffc0e20a2c323a3f5955821ceb663a9f8f722
+vendor/lib/libbluetooth_audio_session_qti.so|18ac2dd54a1d080986078a9b20dbc639f47fd027
+vendor/lib/libbtnv.so|56cbc77407ff1152a0f1f0d9062fd4f3476ab4dc
+vendor/lib64/btaudio_offload_if.so|bc5fcd07d1f2abd39d69ba141fb6bf313207452b
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|c3d36e80f3fe18403613b63ceeea304d5f88ed4d
+vendor/lib64/libbluetooth_audio_session_qti.so|75e51d7268280740d66c5fa8b9bea834e22ee2d8
+vendor/lib64/libbtnv.so|b6164411eba75c2b5d8be54861fe92712444dcf1
 
 # Camera - Q
 vendor/bin/hw/vendor.oppo.hardware.camera.oppoAlgoProcessService@1.0-service|9a7c7aabe8f8ff485a30b5cf458179cc2352af27
