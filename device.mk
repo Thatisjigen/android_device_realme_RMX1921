@@ -285,6 +285,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
+# Keystore
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.xt
