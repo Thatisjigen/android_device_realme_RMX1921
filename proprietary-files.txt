@@ -24,6 +24,11 @@ vendor/lib64/libsdsprpc.so|d3f6e724c7af2e0d6230a5ed78222498ebafa005
 
 # ADSP modules - Q
 vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so|04c53116faed9592573f1dd388935e72724feb5f
+vendor/lib/rfsa/adsp/dirac-capiv2-game.so|697bc59ebbdc7182aa39164b887bedf7cc57abc4
+vendor/lib/rfsa/adsp/dirac-capiv2.so|9010d3c7933fc2ae3787d574efbf513316c56679
+vendor/lib/rfsa/adsp/dirac_resource.dar|bc7c0582641024637acd7ec720d6cd2fc4fd6b78
+vendor/lib/rfsa/adsp/dirac_resource.so|1be34cbc7e05948ae917719a6fec17ac56659835
+vendor/lib/rfsa/adsp/dirac_resource_game.dar|d4d383a92fb4dd431d8b24552a2c86b32a804957
 vendor/lib/rfsa/adsp/libVC1Dec.so|80f2879a960344b24539725b2a5dc9ebe9d97bf5
 vendor/lib/rfsa/adsp/libVC1DecDsp_skel.so|c626d2136bf0d0016baf4c39ecc4a8f3241fa342
 vendor/lib/rfsa/adsp/libVDHexagonBlurless_skel.so|9e634cd0c3d54b7318e73da0268b3f3f8abc086f
@@ -37,6 +42,7 @@ vendor/lib/rfsa/adsp/libcamera_nn_skel.so|e4a35174a93264b38fe210a3f99e5fb7be8dc3
 vendor/lib/rfsa/adsp/libclock_adjust_skel.so|5b016facf314ab85e487c0f54197b46d30eb904c
 vendor/lib/rfsa/adsp/libcvpdsp_skel.so|58cbb97212073cf7e4780c6d77a7628c3ee845bd
 vendor/lib/rfsa/adsp/libdepthmap_skel.so|b763ef53e1dfd30963f7a0a26dea7753f24e1926
+vendor/lib/rfsa/adsp/libdirac_capiv2ext.so|5ad5c37c818b935df03dd86a91af91aa4425bb3c
 vendor/lib/rfsa/adsp/libdspCV_skel.so|c6034c389845a94a4054dd0fe9a0381adbf086e5
 vendor/lib/rfsa/adsp/libhexagon_nn_skel.so|e622176f7e922d4a85349e8b221ceb6f7763519e
 vendor/lib/rfsa/adsp/libproxy_skel.so|9c4f6a399689923f2e39d5cd6d1d2f659607d0e2
@@ -599,6 +605,9 @@ vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
+
+# DRM - from mata OPM1.170911.254
+vendor/lib64/libspl.so|0cf185c22519bbae1e1232928fda151f538f9977
 
 # DSP service
 vendor/bin/dspservice
@@ -1200,6 +1209,9 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
 vendor/radio/qcril_database/qcril.db
+
+# RIL - from mojito RKQ1.201022.002
+vendor/lib64/deviceInfoServiceModule.so|584d8b2193ac79fc46b9abae749c1b08e69eb2a2
 
 # Seccomp
 vendor/etc/seccomp_policy/qti-systemd.policy
