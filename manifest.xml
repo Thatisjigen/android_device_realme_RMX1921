@@ -267,6 +267,11 @@
         <fqname>@1.0::ILinkLatency/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.display.mapper</name>
+        <transport arch="32+64">passthrough</transport>
+        <fqname>@1.1::IQtiMapper/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.dsp</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IDspService/dspservice</fqname>
