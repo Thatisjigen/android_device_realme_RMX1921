@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2012-2013, 2016-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2013, 2016-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -38,42 +38,38 @@ function configure_zram_parameters() {
     # Zram disk - 75% for Go devices.
     # For 512MB Go device, size = 384MB, set same for Non-Go.
     # For 1GB Go device, size = 768MB, set same for Non-Go.
-    # For >1GB and <=3GB Non-Go device, size = 1GB
-    # For >3GB and <=4GB Non-Go device, size = 2GB
-    # For >4GB Non-Go device, size = 4GB
+    # For 2GB Go device, size = 1536MB, set same for Non-Go.
+    # For >2GB Non-Go devices, size = 50% of RAM size. Limit the size to 4GB.
     # And enable lz4 zram compression for Go targets.
+
+    let RamSizeGB="( $MemTotal / 1048576 ) + 1"
+    diskSizeUnit=M
+        let zRamSizeMB="( $RamSizeGB * 1024 ) / 2"
+
+    # use MB avoid 32 bit overflow
+    if [ $zRamSizeMB -gt 4096 ]; then
+        let zRamSizeMB=4096
+    fi
 
     if [ "$low_ram" == "true" ]; then
         echo lz4 > /sys/block/zram0/comp_algorithm
     fi
 
-#ifdef VENDOR_EDIT
-#//Huacai.Zhou@PSW.Kernel.mm,2018-12-06, Modify for config zramsize according to ramsize
     if [ -f /sys/block/zram0/disksize ]; then
         if [ -f /sys/block/zram0/use_dedup ]; then
             echo 1 > /sys/block/zram0/use_dedup
         fi
-        if [ $MemTotal -le 4194304 ]; then
-            #config 2GB+512MB zram size with memory 4 GB
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 2684354560 > /sys/block/zram0/disksize
-            echo 160 > /proc/sys/vm/swappiness
-            echo 60 > /proc/sys/vm/direct_swappiness
-        elif [ $MemTotal -le 6291456 ]; then
-            #config 2GB+512M zram size with memory 6 GB
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 2684354560 > /sys/block/zram0/disksize
-            echo 160 > /proc/sys/vm/swappiness
-            echo 60 > /proc/sys/vm/direct_swappiness
-        else
-            #Kui.Zhang@PSW.Kernel.Performance, 2019/02/18
-            #config 2GB+192M zram size with memory 8 GB
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 2348810240 > /sys/block/zram0/disksize
-            echo 160 > /proc/sys/vm/swappiness
-            echo 60 > /proc/sys/vm/direct_swappiness
+        echo "$zRamSizeMB""$diskSizeUnit" > /sys/block/zram0/disksize
+
+        # ZRAM may use more memory than it saves if SLAB_STORE_USER
+        # debug option is enabled.
+        if [ -e /sys/kernel/slab/zs_handle ]; then
+            echo 0 > /sys/kernel/slab/zs_handle/store_user
         fi
-#endif /*VENDOR_EDIT*/
+        if [ -e /sys/kernel/slab/zspage ]; then
+            echo 0 > /sys/kernel/slab/zspage/store_user
+        fi
+
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
     fi
@@ -82,14 +78,13 @@ function configure_zram_parameters() {
 function configure_read_ahead_kb_values() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
-
+    dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc)
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
         echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb
         echo 512 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
-        echo 512 > /sys/block/mmcblk0rpmb/queue/read_ahead_kb
-        echo 512 > /sys/block/dm-0/queue/read_ahead_kb
-        echo 512 > /sys/block/dm-1/queue/read_ahead_kb
-        echo 512 > /sys/block/dm-2/queue/read_ahead_kb
+        for dm in $dmpts; do
+            echo 512 > $dm
+        done
 }
 
 function disable_core_ctl() {
@@ -155,23 +150,14 @@ low_ram=`getprop ro.config.low_ram`
             soc_id=`cat /sys/devices/system/soc/soc0/id`
         fi
 
-        case "$soc_id" in
-          # Do not set PPR parameters for premium targets
-          # sdm845 - 321, 341
-          # msm8998 - 292, 319
-          # msm8996 - 246, 291, 305, 312
-          "321" | "341" | "292" | "319" | "246" | "291" | "305" | "312")
-            ;;
-          *)
-            #Set PPR parameters for all other targets.
-            echo $set_almk_ppr_adj > /sys/module/process_reclaim/parameters/min_score_adj
-            echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-            echo 50 > /sys/module/process_reclaim/parameters/pressure_min
-            echo 70 > /sys/module/process_reclaim/parameters/pressure_max
-            echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
-            echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
-            ;;
-        esac
+    #Set PPR parameters.
+    echo $set_almk_ppr_adj > /sys/module/process_reclaim/parameters/min_score_adj
+    echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
+    echo 50 > /sys/module/process_reclaim/parameters/pressure_min
+    echo 70 > /sys/module/process_reclaim/parameters/pressure_max
+    echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
+    echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
+
 
     # Set allocstall_threshold to 0 for all targets.
     # Set swappiness to 100 for all targets
@@ -302,8 +288,8 @@ for cpubw in /sys/class/devfreq/*qcom,cpubw*
     #Enable userspace governor for L3 cdsp nodes
     for l3cdsp in /sys/class/devfreq/*qcom,l3-cdsp*
     do
-        echo "userspace" > $l3cdsp/governor
-        chown -h system $l3cdsp/userspace/set_freq
+	echo "userspace" > $l3cdsp/governor
+	chown -h system $l3cdsp/userspace/set_freq
     done
 
     echo "cpufreq" > /sys/class/devfreq/soc:qcom,mincpubw/governor
@@ -325,7 +311,7 @@ for cpubw in /sys/class/devfreq/*qcom,cpubw*
     # Turn off scheduler boost at the end
     echo 0 > /proc/sys/kernel/sched_boost
 
-    # Turn on sleep modes.
+    # Turn on sleep modes
     echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
 setprop vendor.post_boot.parsed 1
