@@ -1,1 +1,1 @@
-allow hal_rcsservice diag_device:chr_file { read open write };
+allow hal_rcsservice diag_device:chr_file { read open write ioctl };

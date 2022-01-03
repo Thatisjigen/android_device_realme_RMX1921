@@ -4,7 +4,7 @@ allow init ion_device:chr_file { ioctl open read };
 allow init persist_file:lnk_file read;
 allow init same_process_hal_file:file execute;
 allow init self:socket create;
-allow init socket_device:sock_file { create setattr };
+allow init socket_device:sock_file { create setattr unlink };
 allow init proc_touchpanel:file setattr;
 allow init sysfs:file setattr;
 allow init sysfs_oppo_display:file rw_file_perms;

@@ -19,4 +19,4 @@ dontaudit hal_audio_default default_prop:file read;
 # Dolby
 allow hal_audio_default hal_dms_default:binder { transfer call };
 allow hal_audio_default hal_dms_hwservice:hwservice_manager find;
-allow hal_audio_default diag_device:chr_file { read write open };
+allow hal_audio_default diag_device:chr_file { read write open ioctl };
