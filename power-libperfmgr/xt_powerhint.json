@@ -30,6 +30,7 @@
       "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq",
       "Values": [
         "9999999",
+        "2208000",
         "1996800",
         "1747200",
         "1536000",
@@ -58,9 +59,7 @@
         "610000000",
         "504000000",
         "430000000",
-        "355000000",
-        "267000000",
-        "180000000"
+        "355000000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -69,6 +68,7 @@
       "Name": "GPUMinFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
+        "504000000",
         "430000000",
         "355000000",
         "267000000",
@@ -128,7 +128,8 @@
       "Values": [
         "0",
         "3"
-      ]
+      ],
+      "ResetOnInit": true
     },
     {
       "Name": "CPUBWHistMemory",
@@ -136,7 +137,8 @@
       "Values": [
         "0",
         "20"
-      ]
+      ],
+      "ResetOnInit": true
     },
     {
       "Name": "CPUBWHystLength",
@@ -144,7 +146,8 @@
       "Values": [
         "0",
         "10"
-      ]
+      ],
+      "ResetOnInit": true
     },
     {
       "Name": "CPUBWMinFreq",
@@ -181,8 +184,8 @@
       "Name": "PMQoSCpuDmaLatency",
       "Path": "/dev/cpu_dma_latency",
       "Values": [
-        "67",
-        "100"
+        "2c",
+        "64"
       ],
       "HoldFd": true
     },
@@ -192,6 +195,15 @@
       "Values": [
         "0-5",
         "0-5,7"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "SchedBoost",
+      "Path": "/proc/sys/kernel/sched_boost",
+      "Values": [
+        "1",
+        "0"
       ],
       "ResetOnInit": true
     },
@@ -279,13 +291,19 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "2929"
+      "Value": "5161"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "ForegroundCpuset",
       "Duration": 5000,
       "Value": "0-5"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "SchedBoost",
+      "Duration": 5000,
+      "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
@@ -309,7 +327,7 @@
       "PowerHint": "LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 1500,
-      "Value": "67"
+      "Value": "2c"
     },
     {
       "PowerHint": "LAUNCH",
@@ -367,6 +385,18 @@
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
+      "Node": "ForegroundCpuset",
+      "Duration": 1000,
+      "Value": "0-5"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "SchedBoost",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 1000,
       "Value": "9999999"
@@ -393,19 +423,19 @@
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 1000,
-      "Value": "67"
+      "Value": "2c"
     },
     {
       "PowerHint": "CAMERA_STREAMING_MID",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1996800"
+      "Value": "2208000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1996800"
+      "Value": "2208000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -423,7 +453,19 @@
       "PowerHint": "CAMERA_STREAMING_LOW",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1996800"
+      "Value": "2208000"
+    },
+    {
+      "PowerHint": "CAMERA_SHOT",
+      "Node": "ForegroundCpuset",
+      "Duration": 1000,
+      "Value": "0-5"
+    },
+    {
+      "PowerHint": "CAMERA_SHOT",
+      "Node": "SchedBoost",
+      "Duration": 1000,
+      "Value": "1"
     },
     {
       "PowerHint": "CAMERA_SHOT",
@@ -453,7 +495,7 @@
       "PowerHint": "CAMERA_SHOT",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 1000,
-      "Value": "67"
+      "Value": "2c"
     },
     {
       "PowerHint": "AUDIO_LAUNCH",
@@ -465,7 +507,7 @@
       "PowerHint": "AUDIO_LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 2000,
-      "Value": "67"
+      "Value": "2c"
     },
     {
       "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
@@ -477,7 +519,7 @@
       "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 0,
-      "Value": "67"
+      "Value": "2c"
     },
     {
       "PowerHint": "Flipendo",
