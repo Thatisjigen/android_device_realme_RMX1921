@@ -1544,7 +1544,6 @@ vendor/lib/libsensorslog.so|eee5745dda3288e308366b4c006388fcf9031830
 vendor/lib/libssc.so|fcb567d94902f82a3aa0d2657d4d417c6f1f2c89
 vendor/lib/libssc_default_listener.so|55dd9cb1f3e61110a7fc952c50350742a2d4e083
 vendor/lib/sensors.ap.so|95b85151e855eda94b59b292be96be195de8f5ff
-vendor/lib/sensors.ssc.so|0be557591217ed2e7aa3998bf9b639b387a10f6d
 vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so|daf89e14289eb6edc0bf7d65f065a6f88471da5c
 vendor/lib64/hw/sensors.sdm710.so|a42be14d18ff8bc27c2355e6bb6382fba1ffa965
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so|220187f35fbc70b7fbcced63ea3b732c2c29b7b3
@@ -1553,8 +1552,11 @@ vendor/lib64/libsensorslog.so|cfaebc819d84b39ee8b06de01117f3ce99c39dea
 vendor/lib64/libssc.so|d9604c6308ff6bcb38a15cee1c199a71a5a04d9b
 vendor/lib64/libssc_default_listener.so|5adc6190063a5b721b216109ca58b18c059733b7
 vendor/lib64/sensors.ap.so|ec8b17c9ba3f4bd8c15bd7ae8453b305bde39fdc
-vendor/lib64/sensors.ssc.so|6b87a720f7b14f0d622ae42dbc8d8b9e81b24767
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|31e21a6219a19e3a1af1e393c30d04a8dcc6992e
+
+# Sensors - Q, patched to nuke wise light logspam
+vendor/lib/sensors.ssc.so|a929d56e2d7d2275b918e1ca646e71cc2d5a0f7c
+vendor/lib64/sensors.ssc.so|83352d205da529a0dcb4684874e886e2878bd611
 
 # Touchpanel firmware
 odm/firmware/tp/19651/FW_S3706_SAMSUNG.img
