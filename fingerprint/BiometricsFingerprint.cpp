@@ -315,6 +315,14 @@ Return<void> BiometricsFingerprint::onFingerUp() {
     return Void();
 }
 
+Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
+    return Void();
+}
+
+Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
+    return Void();
+}
+
 void BiometricsFingerprint::setFingerprintScreenState(const bool on) {
     mOppoBiometricsFingerprint->setScreenState(
         on ? vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintScreenState::FINGERPRINT_SCREEN_ON :
