@@ -20,17 +20,9 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-    <!-- Should "4G" be shown instead of "LTE" when the network is NETWORK_TYPE_LTE? -->
-    <bool name="config_show4GForLTE">true</bool>
 
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
-
-    <!-- Default no. of QS tile rows and columns -->
-    <integer name="config_qs_columns_portrait">4</integer>
-    <integer name="config_qs_rows_portrait">4</integer>
-    <integer name="config_qs_columns_landscape">5</integer>
-    <integer name="config_qs_rows_landscape">2</integer>
 
     <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
     <bool name="doze_suspend_display_state_supported">true</bool>
@@ -41,9 +33,6 @@
     <!-- Burn-in protection -->
     <bool name="config_statusBarBurnInProtection">true</bool>
     <integer name="config_shift_interval">40</integer>
-
-    <!-- Show battery icon in the QS Panel instead of in the header -->
-    <bool name="config_batteryInQSPanel">false</bool>
 
     <!-- Smart replies in notifications: Whether we disable the feature unless the app targets P -->
     <bool name="config_smart_replies_in_notifications_requires_targeting_p">false</bool>    

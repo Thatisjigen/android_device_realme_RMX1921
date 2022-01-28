@@ -1076,9 +1076,6 @@
 
     <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
 
-    <!-- Cleanup unused fingerprints -->
-    <bool name="config_cleanupUnusedFingerprints">false</bool>
-
     <!-- Whether device ignores the RSSNR signal implementation -->
     <bool name="config_ignoreRssnrSignalLevel">true</bool>
 
@@ -1167,17 +1164,6 @@
          Choices are: FULL, NORMAL, OFF. -->
     <string name="db_wal_sync_mode">OFF</string>
 
-    <!-- Whether Device support LiveDisplay or not -->
-    <bool name="config_liveDisplayAvailable">true</bool>
-
-    <!-- SystemInfo Sys Nodes -->
-    <string name="config_sysCPUTemp">/sys/class/thermal/thermal_zone3/temp</string>
-    <string name="config_sysBatteryTemp">/sys/class/power_supply/battery/temp</string>
-    <string name="config_sysGPUFreq">/sys/kernel/gpu/gpu_clock</string>
-    <string name="config_sysGPULoad">/sys/kernel/gpu/gpu_busy</string>
-    <integer name="config_sysCPUTempMultiplier">10</integer>
-    <integer name="config_sysBatteryTempMultiplier">10</integer>
-
     <!-- Whether or not we should show vendor mismatch message -->
     <bool name="config_show_vendor_mismatch_message">false</bool>
 
@@ -1190,9 +1176,6 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
 
-    <!-- Whether device has screen with higher aspect ratio -->
-    <bool name="config_haveHigherAspectRatioScreen">true</bool>
-
     <!-- IWLAN data service package name to bind to by default. If none is specified in an overlay, an
          empty string is passed in -->
     <string name="config_wlan_data_service_package">vendor.qti.iwlan</string>
@@ -1203,12 +1186,6 @@
 
     <!-- Telephony qualified networks service package name to bind to by default. -->
     <string name="config_qualified_networks_service_package">vendor.qti.iwlan</string>
-
-    <!-- Whether device has a notch -->
-    <bool name="config_haveNotch">true</bool>
-
-    <!-- Device have a fod sensor -->
-    <bool name="config_supportsInDisplayFingerprint">true</bool>
 
     <!-- The device supports freeform window management. Windows have title bars and can be moved
          and resized. If you set this to true, you also need to add
@@ -1265,17 +1242,8 @@
     <!-- The max scale for the wallpaper when it's zoomed in -->
     <item name="config_wallpaperMaxScale" format="float" type="dimen">1.00</item>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">false</bool>
-
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">60</integer>
-
-    <!-- Default fod pressed color -->
-    <integer name="config_fod_pressed_color">0</integer>
-
-    <!-- Whether to show settings for hiding notch fill -->
-    <bool name="config_showHideNotchSettings">true</bool>
 
     <integer-array name="config_udfps_sensor_props" translatable="false">
         <item>540</item>
