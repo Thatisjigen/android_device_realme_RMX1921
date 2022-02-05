@@ -39,7 +39,7 @@ public class DisplayStateHelper implements DisplayListener {
      private InfraredSensor mFakeProximity;
      private FodHelper mFodHelper;
      private AodProxHelper mAodProxHelper;
-     private static final String AOD_STATUS = "/proc/touchpanel/fod_aod_listener";//this is almost useless, used for debug mostly and left there cause "Why not?", I may need it later for additional purposes
+     private static final String FOD_STATUS = "/proc/touchpanel/fod_aod_listener";
      private static final String DOZING = "/proc/touchpanel/DOZE_STATUS";
      private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
@@ -63,24 +63,15 @@ public class DisplayStateHelper implements DisplayListener {
      
      @Override
      public void onDisplayChanged(int displayId) {
-        if ((displayId == Display.DEFAULT_DISPLAY && isDefaultDisplayOff(mcontext))||RealmeProximityHelperService.isAlwaysOnEnabled(mcontext)) {
-        // register proximity or fod listener
-           if (DEBUG) Log.d(TAG, "Display Dozing, Attempting to register fod sensor listener");
-           FileHelper.writeValue(AOD_STATUS, "1");
-           mFodHelper.enable();
-           mAodProxHelper.enable();
-           if (!FileHelper.getFileValueAsBoolean(DOZING, false)){
-                if (displayId == Display.DEFAULT_DISPLAY && isDefaultDisplayOff(mcontext)){
-                        if (DEBUG) Log.d(TAG, "Display OFF, Attempting to register proximity sensor");
-                        mFakeProximity.enable();
-                        } else
-                            mFakeProximity.disable();
-           }
-       } else {
-           // unregister proximity
-           if (DEBUG) Log.d(TAG, "Display ON, Attempting to unregister porximity sensor");
-           mFakeProximity.disable();
-       }
+        if ((displayId == Display.DEFAULT_DISPLAY && isDefaultDisplayOff(mcontext)) || (FileHelper.getFileValueAsBoolean(FOD_STATUS, false) && RealmeProximityHelperService.isAlwaysOnEnabled(mcontext))) {
+                // register proximity or fod listener
+                if (FileHelper.getFileValueAsBoolean(FOD_STATUS, false) && RealmeProximityHelperService.isAlwaysOnEnabled(mcontext)){
+                   mFodHelper.enable();
+                   mAodProxHelper.enable();
+                }
+                else if (isDefaultDisplayOff(mcontext)) 
+                    mFakeProximity.enable();
+        } else mFakeProximity.disable();
     }
 
     void enable() {
@@ -95,8 +86,7 @@ public class DisplayStateHelper implements DisplayListener {
         if (DEBUG) Log.d(TAG, "Killing display state listener");
         mcontext.getSystemService(DisplayManager.class).unregisterDisplayListener(this);
         mFakeProximity.disable();
-        mFodHelper.disable();
-        mAodProxHelper.disable();
+        disableSensors();
     }
 
     private static boolean isDefaultDisplayOff(Context context) {

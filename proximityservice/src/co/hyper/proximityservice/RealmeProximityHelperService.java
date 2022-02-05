@@ -36,7 +36,7 @@ import static android.provider.Settings.Secure.DOZE_ALWAYS_ON;
 
 public class RealmeProximityHelperService extends Service {
     private static final String TAG = "RealmeProximityHelperService";
-    private static final String PS_STATUS = "/proc/touchpanel/fd_enable";
+    private static final String FOD_STATUS = "/proc/touchpanel/fod_aod_listener";
     private static final boolean DEBUG = false;
 
     // Create Variable for Infrared sensor class usage
@@ -49,22 +49,19 @@ public class RealmeProximityHelperService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action.equals(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED)||action.equals(Intent.ACTION_SCREEN_OFF)){
-                mDisplayHelper.enable();
-                if (DEBUG) Log.d(TAG, "Pulsed is"+pulsed);
-                if (!pulsed){
-                    mDisplayHelper.launchDozePulse(context);
-                    pulsed = true;//don't loop pulses
+            if (action.equals(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED) || action.equals(Intent.ACTION_SCREEN_OFF)){
+                if(FileHelper.getFileValueAsBoolean(FOD_STATUS, false) && isAlwaysOnEnabled(context)){
+                    mDisplayHelper.enable();
+                    if (DEBUG) Log.d(TAG, "Pulsed is"+pulsed);
+                    if (!pulsed){
+                        mDisplayHelper.launchDozePulse(context);
+                        pulsed = true;//don't loop pulses
+                    }
                 }
             }
             if (action.equals(Intent.ACTION_SCREEN_OFF)) {
-                if(!FileHelper.getFileValueAsBoolean(PS_STATUS, false) || !isAlwaysOnEnabled(context)){
-                if (DEBUG) Log.d(TAG, "Screen-off no proximity event");
-                    if(!isAlwaysOnEnabled(context))
+                if(!FileHelper.getFileValueAsBoolean(FOD_STATUS, false))
                         mDisplayHelper.disable();
-            } else {
-                if (DEBUG) Log.d(TAG, "Not disabling, Proximity event fd_enable = 1");
-            }
             } else if (action.equals(Intent.ACTION_SCREEN_ON)) {
                 if (DEBUG) Log.d(TAG, "Enabling the DisplayState listener");
                 mDisplayHelper.enable();

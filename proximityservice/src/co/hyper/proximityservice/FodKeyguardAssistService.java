@@ -35,6 +35,7 @@ public class FodKeyguardAssistService extends Service {
     private static final String AOD_STATUS = "/proc/touchpanel/fod_aod_listener";
     private static final String FOD_PRESSED = "/proc/touchpanel/fod_aod_pressed";
     private static final String DOZING = "/proc/touchpanel/DOZE_STATUS";
+    private static final String PS_NEAR = "/proc/touchpanel/prox_near";
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
@@ -44,6 +45,7 @@ public class FodKeyguardAssistService extends Service {
 
                 final boolean dozing = !FileHelper.getFileValueAsBoolean(DOZING, false);
                 FileHelper.writeValue(AOD_STATUS, "0");//clean up the old state
+                FileHelper.writeValue(PS_NEAR, "0");
 
                 if (!dozing) {
                     RealmeProximityHelperService.pulsed = false;//clean up the pulsed flag

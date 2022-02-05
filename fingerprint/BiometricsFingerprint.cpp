@@ -18,8 +18,10 @@
 #define FP_PRESS_NOTIFY "/sys/kernel/oppo_display/notify_fppress"
 #define DIMLAYER_PATH "/sys/kernel/oppo_display/dimlayer_hbm"
 #define PS_MASK "/proc/touchpanel/prox_mask"
+#define PS_NEAR "/proc/touchpanel/prox_near"
 #define AOD_PRESS "/proc/touchpanel/fod_aod_pressed"
 #define DOZING "/proc/touchpanel/DOZE_STATUS"
+#define DOZING_FP_HELPER "/proc/touchpanel/fod_aod_listener"
 #define ON 1
 #define OFF 0
 
@@ -126,9 +128,9 @@ public:
     }
 
     Return<void> onTouchUp(uint64_t deviceId) {
-        set(PS_MASK, OFF);
         set(AOD_PRESS, OFF);
         set(FP_PRESS_NOTIFY, OFF);
+        set(PS_NEAR, OFF);
         return Void();
     }
 
@@ -335,6 +337,7 @@ void BiometricsFingerprint::setFingerprintScreenState(const bool on) {
                 set(DIMLAYER_PATH, ON);
             }
         }).detach();
+        set(DOZING_FP_HELPER, ON);
     } else
     set(DIMLAYER_PATH, on ? ON: OFF);
 }
