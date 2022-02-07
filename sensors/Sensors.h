@@ -68,8 +68,11 @@ private:
     sensors_module_t *mSensorModule;
     sensors_poll_device_1_t *mSensorDevice;
     std::mutex mPollLock;
-
+    bool isProximityWakeup(int32_t sensor_handle);
+    float moving;
+    bool saved;
     int32_t mSensorHandleProximity;
+    int32_t mSensorHandleProximityWakeup;
 
     int getHalDeviceVersion() const;
 

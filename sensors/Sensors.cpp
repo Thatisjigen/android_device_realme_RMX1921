@@ -21,7 +21,12 @@
 #include <time.h>
 #include <android-base/logging.h>
 
+#include <unistd.h>
+#include <fstream>
+#include <cmath>
 #include <sys/stat.h>
+
+#define NEAR "/proc/touchpanel/prox_near"
 
 namespace android {
 namespace hardware {
@@ -58,7 +63,9 @@ Sensors::Sensors()
     : mInitCheck(NO_INIT),
       mSensorModule(nullptr),
       mSensorDevice(nullptr),
-      mSensorHandleProximity(-1){
+      moving (-1),
+      saved (false),
+      mSensorHandleProximityWakeup(-1){
     status_t err = OK;
     if (UseMultiHal()) {
         mSensorModule = ::get_multi_hal_module_info();
@@ -111,6 +118,21 @@ Sensors::Sensors()
     mInitCheck = OK;
 }
 
+template <typename T>
+static inline void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
+
+template <typename T>
+static inline T get(const std::string& path, const T& def) {
+    std::ifstream file(path);
+    T result;
+
+    file >> result;
+    return file.fail() ? def : result;
+}
+
 status_t Sensors::initCheck() const {
     return mInitCheck;
 }
@@ -137,6 +159,10 @@ Return<void> Sensors::getSensorsList(getSensorsList_cb _hidl_cb) {
             dst->type = SensorType::PROXIMITY;
             mSensorHandleProximity = dst->sensorHandle;
             dst->typeAsString = "";
+        }
+
+        if (dst->typeAsString == "android.sensor.accelerometer"){
+            mSensorHandleProximityWakeup = dst->sensorHandle;
         }
     }
 
@@ -351,7 +377,23 @@ void Sensors::convertFromSensorEvents(
         Event *dst = &(*dstVec)[i];
 
         convertFromSensorEvent(src, dst);
+        if (isProximityWakeup(dst->sensorHandle)) {
+            if(get(NEAR,0)){
+                if (!saved){
+                    moving = abs(dst->u.scalar);
+                    saved = true;
+                }
+                if ((abs(moving-abs(dst->u.scalar))) >= 2){
+                    saved = false;
+                    set(NEAR,0);
+                }
+            }
+        }
     }
+}
+
+bool Sensors::isProximityWakeup(int32_t sensor_handle) {
+    return sensor_handle == mSensorHandleProximityWakeup;
 }
 
 ISensors *HIDL_FETCH_ISensors(const char * /* hal */) {

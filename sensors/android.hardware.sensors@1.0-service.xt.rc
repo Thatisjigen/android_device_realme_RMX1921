@@ -1,3 +1,7 @@
+on boot
+    chmod 0660 /proc/touchpanel/prox_near
+    chown system system /proc/touchpanel/prox_near
+
 service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service.xt
     class hal
     user system
