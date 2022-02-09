@@ -63,12 +63,17 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
+# Consumer IR
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-service.xiaomi
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/xiaomi
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/sdm710-common/sdm710-common-vendor.mk)
