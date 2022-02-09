@@ -172,6 +172,10 @@ PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.mlipay@1.1.vendor \
     vendor.xiaomi.hardware.mtdservice@1.2.vendor
 
+# Net
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
