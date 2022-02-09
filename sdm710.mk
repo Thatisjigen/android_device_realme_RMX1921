@@ -139,6 +139,10 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
