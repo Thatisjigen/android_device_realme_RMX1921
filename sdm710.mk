@@ -71,6 +71,30 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@2.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator@1.0-service \
+    gralloc.sdm710
+
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.3-service \
+    hwcomposer.sdm710
+
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    memtrack.sdm710
+
+PRODUCT_PACKAGES += \
+    libdisplayconfig.qti \
+    libqdMetaData \
+    libtinyxml \
+    vendor.display.config@1.0.vendor \
+    vendor.display.config@2.0 \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
