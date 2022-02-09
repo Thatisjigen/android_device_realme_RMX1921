@@ -259,5 +259,18 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    hostapd \
+    libwpa_client \
+    libwifi-hal-ctrl \
+    libwifi-hal-qcom \
+    vendor.qti.hardware.wifi.hostapd@1.2.vendor \
+    vendor.qti.hardware.wifi.supplicant@2.1.vendor \
+    WifiResCommon \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/sdm710-common/sdm710-common-vendor.mk)
