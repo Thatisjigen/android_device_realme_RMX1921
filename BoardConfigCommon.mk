@@ -21,5 +21,13 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := sdm710
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_BOARD_PLATFORM := sdm710
+
 # Inherit the proprietary files
 include vendor/xiaomi/sdm710-common/BoardConfigVendor.mk
