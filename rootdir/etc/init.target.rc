@@ -52,7 +52,7 @@ on init
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    mount_all /vendor/etc/fstab.qcom --early
+    mount_all /vendor/etc/fstab.qcom
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
@@ -79,9 +79,6 @@ service sec_nvm /vendor/bin/sec_nvm
     class core
     user system
     group system
-
-on late-fs
-    mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
