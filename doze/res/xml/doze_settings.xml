@@ -74,8 +74,8 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="prox_fod_wake"
-            android:summary="@string/fod_prox_gesture_title"
-            android:title="@string/fod_prox_gesture_summary" />
+            android:summary="@string/fod_prox_gesture_summary"
+            android:title="@string/fod_prox_gesture_title" />
 
     </PreferenceCategory>
 </PreferenceScreen>
