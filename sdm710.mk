@@ -230,6 +230,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
 
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.2.vendor \
+    com.android.nfc_extras \
+    libchrome.vendor \
+    NfcNci \
+    SecureElement \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
 # OMX
 PRODUCT_PACKAGES += \
     libOmxAacEnc \
