@@ -383,7 +383,7 @@ void Sensors::convertFromSensorEvents(
                     moving = abs(dst->u.scalar);
                     saved = true;
                 }
-                if ((abs(moving-abs(dst->u.scalar))) >= 2){
+                if ((abs(moving-abs(dst->u.scalar))) >= 4){
                     saved = false;
                     set(NEAR,0);
                 }
