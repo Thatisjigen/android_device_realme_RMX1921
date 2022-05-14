@@ -480,6 +480,10 @@ void HalProxy::initializeSensorList() {
                     ALOGV("Loaded sensor: %s", sensor.name.c_str());
                     sensor.sensorHandle = setSubHalIndex(sensor.sensorHandle, subHalIndex);
                     setDirectChannelFlags(&sensor, mSubHalList[subHalIndex]);
+                    if (sensor.typeAsString == "android.sensor.tp_proximity") {
+                        sensor.type = SensorType::PROXIMITY;
+                        sensor.typeAsString = "";
+                    }
                     mSensors[sensor.sensorHandle] = sensor;
                 }
             }
