@@ -324,6 +324,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh
 
 PRODUCT_PACKAGES += \
+    init.fingerprint.rc \
     init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
