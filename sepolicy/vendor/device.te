@@ -1,0 +1,7 @@
+type fingerprint_device, dev_type;
+
+type gps_device, dev_type;
+
+type lirc_device, dev_type;
+
+type ultrasound_device, dev_type;

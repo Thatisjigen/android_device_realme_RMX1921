@@ -1,0 +1,14 @@
+allow radio audioserver_service:service_manager find;
+allow radio cameraserver_service:service_manager find;
+allow radio drmserver_service:service_manager find;
+allow radio hal_datafactory_hwservice:hwservice_manager find;
+allow radio hal_iwlan_hwservice:hwservice_manager find;
+allow radio mediaextractor_service:service_manager find;
+allow radio mediametrics_service:service_manager find;
+allow radio mediaserver_service:service_manager find;
+
+binder_call(radio, cnd)
+binder_call(radio, gpuservice)
+binder_call(radio, hal_imsrtp)
+
+get_prop(radio, qcom_ims_prop)

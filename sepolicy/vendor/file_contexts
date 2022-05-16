@@ -1,0 +1,82 @@
+# Audio
+/dev/socket/audio_hw_socket                                             u:object_r:audio_socket:s0
+/mnt/vendor/persist/audio(/.*)?                                         u:object_r:persist_audio_file:s0
+
+# Camera
+/mnt/vendor/persist/camera(/.*)?                                        u:object_r:persist_camera_file:s0
+/vendor/bin/remosaic_daemon                                             u:object_r:remosaic_daemon_exec:s0
+
+# Display
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/disp_param        u:object_r:sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/dynamic_fps       u:object_r:sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/hbm_status        u:object_r:sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info        u:object_r:sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/smart_fps_value   u:object_r:sysfs_graphics:s0
+
+# Fingerprint
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi                   u:object_r:hal_fingerprint_default_exec:s0
+
+# Fingerprint data
+/data/gf_data(/.*)?                                                     u:object_r:fingerprint_data_file:s0
+/data/vendor/fpc(/.*)?                                                  u:object_r:fingerprint_data_file:s0
+/data/vendor/fpdump(/.*)?                                               u:object_r:fingerprint_data_file:s0
+/data/vendor/goodix(/.*)?                                               u:object_r:fingerprint_data_file:s0
+/data/vendor/syna(/.*)?                                                 u:object_r:fingerprint_data_file:s0
+
+# Fingerprint devices
+/dev/goodix_fp                                                          u:object_r:fingerprint_device:s0
+/dev/vfsspi                                                             u:object_r:fingerprint_device:s0
+
+# GPS
+/vendor/bin/glgps                                                       u:object_r:glgps_exec:s0
+/vendor/bin/ignss_2_0                                                   u:object_r:hal_gnss_default_exec:s0
+/vendor/bin/lhd                                                         u:object_r:lhd_exec:s0
+
+# GPS data
+/data/vendor/gps(/.*)?                                                  u:object_r:gps_data_file:s0
+
+# GPS devices
+/dev/bbd_control                                                        u:object_r:gps_device:s0
+/dev/bbd_patch                                                          u:object_r:gps_device:s0
+/dev/bbd_sensor                                                         u:object_r:gps_device:s0
+/dev/ttyBCM                                                             u:object_r:gps_device:s0
+
+# GPS nodes
+/dev/socket/gps                                                         u:object_r:gps_socket:s0
+/sys/devices/platform/soc/[0-9]+\.spi/spi_master/spi[0-9]+/spi[0-9]+\.0/nstandby    u:object_r:sysfs_gps:s0
+
+# IR
+/vendor/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi               u:object_r:hal_ir_default_exec:s0
+
+# IR devices
+/dev/ir_spi                                                             u:object_r:lirc_device:s0
+/dev/lirc[0-9]                                                          u:object_r:lirc_device:s0
+/dev/spidev[0-9]\.1                                                     u:object_r:lirc_device:s0
+
+# LED
+/sys/devices/platform/soc/[a-z0-9]+.qcom,spmi/spmi-[0-1]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,leds@d000/leds(/.*)?            u:object_r:sysfs_leds:s0
+/sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds(/.*)?                                                                        u:object_r:sysfs_leds:s0
+
+# Lights
+/vendor/bin/hw/android\.hardware\.light-service\.xiaomi                 u:object_r:hal_light_default_exec:s0
+
+# Mlipay
+/vendor/bin/mlipayd@1\.1                                                u:object_r:hal_mlipay_default_exec:s0
+
+# Neural-networks
+/vendor/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti       u:object_r:hal_neuralnetworks_default_exec:s0
+
+# Power
+/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr      u:object_r:hal_power_default_exec:s0
+
+# Thermal
+/data/vendor/thermal(/.*)?                                              u:object_r:thermal_data_file:s0
+/vendor/bin/mi_thermald                                                 u:object_r:mi_thermald_exec:s0
+
+# Ultrasound devices
+/dev/elliptic(.*)?                                                      u:object_r:ultrasound_device:s0
+/dev/mius(.*)?                                                          u:object_r:ultrasound_device:s0
+
+# WiFi
+/data/vendor/mac_addr(/.*)?                                             u:object_r:wifi_vendor_data_file:s0
+/vendor/bin/nv_mac                                                      u:object_r:wcnss_service_exec:s0

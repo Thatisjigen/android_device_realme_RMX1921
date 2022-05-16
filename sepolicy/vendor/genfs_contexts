@@ -1,0 +1,55 @@
+# Display
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state          u:object_r:sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display                      u:object_r:sysfs_graphics:s0
+
+# Fingerprint
+genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/device_prepare        u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/fingerdown_wait       u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/irq                   u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable         u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:fingerprint_goodix/proximity_state    u:object_r:sysfs_fingerprint:s0
+
+# FOD
+genfscon sysfs /devices/virtual/touch/tp_dev/fod_status                        u:object_r:sysfs_fingerprint:s0
+
+# Health
+genfscon sysfs /class/power_supply/battery/capacity                                                 u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/884000.i2c/i2c-3/3-0066/power_supply/bq2597x-standalone        u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/884000.i2c/i2c-5/5-0066/power_supply/bq2597x-standalone        u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/890000.i2c/i2c-0/0-0066/power_supply/bq2597x-standalone        u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/a88000.i2c/i2c-0/0-004b/power_supply/parallel                  u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/a88000.i2c/i2c-0/0-0061/power_supply/idt                       u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/wireless    u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/wireless    u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:maxim_ds28e16/power_supply/batt_verify                     u:object_r:sysfs_battery_supply:s0
+
+# LED
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/flashlight/brightness               u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_0/brightness              u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_1/brightness              u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:switch_0/brightness             u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:switch_1/brightness             u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.qcom,spmi:qcom,pmi8998@3:qcom,leds@d000/leds/white                               u:object_r:sysfs_leds:s0
+
+# Power
+genfscon debugfs /sched_features                      u:object_r:debugfs_sched_features:s0
+genfscon proc /sys/kernel/sched_autogroup_enabled     u:object_r:proc_sysctl_autogroup:s0
+genfscon proc /sys/kernel/sched_boost                 u:object_r:proc_sysctl_schedboost:s0
+genfscon sysfs /power/rpmh_stats/master_stats         u:object_r:sysfs_rpm:s0
+genfscon sysfs /power/system_sleep/stats              u:object_r:sysfs_system_sleep_stats:s0
+
+# Subsystem
+genfscon sysfs /devices/platform/soc/soc:qcom,cpubw                            u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw                            u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,l3-cpu0                          u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,l3-cpu4                          u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,llccbw                           u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,mincpubw                         u:object_r:sysfs_msm_subsys:s0
+
+# Touchscreen
+genfscon proc /tp_fw_version                          u:object_r:proc_tp:s0
+genfscon proc /tp_lockdown_info                       u:object_r:proc_tp:s0
+genfscon sysfs /touchpanel                            u:object_r:sysfs_touchpanel:s0
+
+# Wi-Fi
+genfscon debugfs /wlan0                               u:object_r:debugfs_wlan:s0
