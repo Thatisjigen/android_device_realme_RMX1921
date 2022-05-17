@@ -44,13 +44,8 @@ on charger
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.usb.sh
     write /config/usb_gadget/g1/strings/0x409/product ${vendor.usb.product_string}
+    setprop sys.usb.config mass_storage
     setprop sys.usb.configfs 1
-    setprop sys.usb.config adb
-    trigger userspace-reboot-fs-remount
-    trigger post-fs-data
-    trigger early-fs
-    trigger fs
-    start adbd
 
 on init
     exec u:r:vendor-qti-testscripts:s0 -- /vendor/bin/sh /vendor/bin/init.qti.usb.debug.sh

@@ -204,28 +204,8 @@ on boot
     chown system system /sys/class/touch/tp_dev/fod_status
 
 on charger
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
-    write /sys/module/lpm_levels/system/system-pc/idle_enabled 0
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "userspace"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 633600
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "userspace"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 633600
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/devices/system/cpu/cpu4/online 0
-    write /sys/devices/system/cpu/cpu5/online 0
-    write /sys/devices/system/cpu/cpu6/online 0
-    write /sys/devices/system/cpu/cpu7/online 0
-    write /sys/module/msm_thermal/parameters/enabled "N"
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel0-backlight/max_brightness
-    start vendor.hvdcp_opti
     start vendor.power_off_alarm
     setprop sys.usb.configfs 1
-    start leds-sh
 
 ## import cne init file
 #on post-fs
@@ -418,11 +398,6 @@ service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
    user system
    group system wifi inet sdcard_rw media_rw diag
    oneshot
-
-service leds-sh /system/vendor/bin/sh /vendor/etc/init.leds.sh
-    class core
-    user root
-    oneshot
 
 service panel-info-sh /system/vendor/bin/sh /vendor/etc/init.panel_info.sh
     class core
