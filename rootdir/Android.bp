@@ -19,18 +19,6 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.crda.sh",
-    src: "bin/init.crda.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.mdm.sh",
-    src: "bin/init.mdm.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.mi.usb.sh",
     src: "bin/init.mi.usb.sh",
     vendor: true,
@@ -43,32 +31,14 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.qcom.coex.sh",
-    src: "bin/init.qcom.coex.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.qcom.early_boot.sh",
     src: "bin/init.qcom.early_boot.sh",
     vendor: true,
 }
 
 sh_binary {
-    name: "init.qcom.efs.sync.sh",
-    src: "bin/init.qcom.efs.sync.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.qcom.post_boot.sh",
     src: "bin/init.qcom.post_boot.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qcom.sdio.sh",
-    src: "bin/init.qcom.sdio.sh",
     vendor: true,
 }
 
@@ -93,13 +63,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.qcom.factory.rc",
-    src: "etc/init.qcom.factory.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.qcom.rc",
     src: "etc/init.qcom.rc",
     sub_dir: "init/hw",
@@ -109,13 +72,6 @@ prebuilt_etc {
 prebuilt_etc {
     name: "init.qcom.usb.rc",
     src: "etc/init.qcom.usb.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.qti.ufs.rc",
-    src: "etc/init.qti.ufs.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
