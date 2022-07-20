@@ -55,30 +55,6 @@ user: AID_SYSTEM
 group: AID_SYSTEM
 caps: 0
 
-[system/app/MobileFeliCaClient*/**/*]
-mode: 0640
-user: AID_ROOT
-group: AID_ROOT
-caps: 0
-
-[system/app/MobileFeliCaMenuMainApp*/**/*]
-mode: 0640
-user: AID_ROOT
-group: AID_ROOT
-caps: 0
-
-[system/app/MobileFeliCaSettngApp*/**/*]
-mode: 0640
-user: AID_ROOT
-group: AID_ROOT
-caps: 0
-
-[system/app/MobileFeliCaWebPluginBoot*/**/*]
-mode: 0640
-user: AID_ROOT
-group: AID_ROOT
-caps: 0
-
 [system/bin/cnss-daemon]
 mode: 0755
 user: AID_BLUETOOTH
@@ -99,12 +75,6 @@ caps: NET_BIND_SERVICE
 
 [system/etc/felica]
 mode: 0755
-user: AID_ROOT
-group: AID_ROOT
-caps: 0
-
-[system/etc/felica/*]
-mode: 0444
 user: AID_ROOT
 group: AID_ROOT
 caps: 0
