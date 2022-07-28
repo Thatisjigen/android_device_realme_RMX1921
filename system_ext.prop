@@ -38,3 +38,4 @@ DEVICE_PROVISIONED=1
 ril.subscription.types=RUIM
 ro.com.android.dataroaming=false
 telephony.lteOnCdmaDevice=1
+
