@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/xiaomi/sdm710-common
+DEVICE_PATH := device/realme/RMX1921
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
@@ -37,7 +37,7 @@ BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm710
@@ -48,17 +48,12 @@ TARGET_HAS_WIDE_COLOR_DISPLAY := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
-ifeq ($(TARGET_HAS_UDFPS),true)
-TARGET_USES_FOD_ZPOS := true
-endif
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Fingerprint
-ifeq ($(TARGET_HAS_UDFPS),true)
-TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/xiaomi:libudfps_extension.xiaomi
-endif
+TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.xt
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -70,8 +65,8 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm710
-TARGET_KERNEL_CONFIG := sdm670-perf_defconfig xiaomi/sdm710-common.config
+TARGET_KERNEL_SOURCE := kernel/realme/sdm710
+TARGET_KERNEL_CONFIG := sdm670-perf_defconfig
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -92,40 +87,38 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3758096384
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
 
 # Platform
-BOARD_VENDOR := xiaomi
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := sdm710
 
 # Power
-TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Properties
-TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
-TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
-TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
-TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-04-01
+VENDOR_SECURITY_PATCH := 2022-04-05
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
-BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 
 # Verified Boot
@@ -137,8 +130,8 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 # VINTF
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
-DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
 
 # VNDK
 BOARD_VNDK_VERSION := current
@@ -159,4 +152,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
-include vendor/xiaomi/sdm710-common/BoardConfigVendor.mk
+include vendor/realme/RMX1921/BoardConfigVendor.mk

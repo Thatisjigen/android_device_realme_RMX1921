@@ -13,6 +13,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_WIDTH := 1080
+
+# Shipping API level
+PRODUCT_SHIPPING_API_LEVEL := 28
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -23,7 +34,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
@@ -111,18 +121,12 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service
 
 PRODUCT_PACKAGES += \
-    libMegviiFacepp-0.5.2 \
     libcamera2ndk_vendor \
     libdng_sdk.vendor \
     libgui_vendor \
-    libmegface \
     libstdc++.vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
-
-# Consumer IR
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service.xiaomi
 
 # Component overrides
 PRODUCT_COPY_FILES += \
@@ -161,15 +165,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi
-
-ifeq ($(TARGET_HAS_UDFPS),true)
-PRODUCT_PACKAGES += \
-    libudfpshandler
-
-PRODUCT_PACKAGES += \
-    vendor.goodix.hardware.biometrics.fingerprint@2.1.vendor
-endif
+    android.hardware.biometrics.fingerprint@2.3-service.xt
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -214,11 +210,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.xiaomi
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+    android.hardware.light-service.xt
 
 # Media
 PRODUCT_PACKAGES += \
@@ -235,11 +227,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
-
-# Mlipay
-PRODUCT_PACKAGES += \
-    vendor.xiaomi.hardware.mlipay@1.1.vendor \
-    vendor.xiaomi.hardware.mtdservice@1.2.vendor
 
 # Net
 PRODUCT_PACKAGES += \
@@ -289,14 +276,12 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.xiaomi-libperfmgr
+    android.hardware.power-service-qti \
+    android.hardware.power@1.2.vendor \
+    vendor.qti.hardware.perf@2.2.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-PRODUCT_SOONG_NAMESPACES += \
-    hardware/google/interfaces \
-    hardware/google/pixel
 
 # Public libraries
 PRODUCT_COPY_FILES += \
@@ -349,8 +334,7 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/xiaomi
+    $(LOCAL_PATH)
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -412,4 +396,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sdm710-common/sdm710-common-vendor.mk)
+$(call inherit-product, vendor/realme/RMX1921/RMX1921-vendor.mk)
