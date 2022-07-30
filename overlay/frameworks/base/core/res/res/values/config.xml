@@ -17,6 +17,56 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Auto-brightness sensor type string -->
+    <string name="config_displayLightSensorType">"qti.sensor.wise_light"</string>
+
+    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
+    Software implementation will be used if config_hardware_auto_brightness_available is not set --> 
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
+         device from the display on/off state.
+         When false, autosuspend_disable() will be called before the display is turned on
+         and autosuspend_enable() will be called after the display is turned off.
+         This mode provides best compatibility for devices using legacy power management
+         features such as early suspend / late resume.
+         When true, autosuspend_display() and autosuspend_enable() will be called
+         independently of whether the display is being turned on or off.  This mode
+         enables the power manager to suspend the application processor while the
+         display is on.
+         This resource should be set to "true" when a doze component has been specified
+         to maximize power savings but not all devices support it.
+         Refer to autosuspend.h for details.
+    -->
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+
+    <!-- Power Management: Specifies whether to decouple the interactive state of the
+         device from the display on/off state.
+         When false, setInteractive(..., true) will be called before the display is turned on
+         and setInteractive(..., false) will be called after the display is turned off.
+         This mode provides best compatibility for devices that expect the interactive
+         state to be tied to the display state.
+         When true, setInteractive(...) will be called independently of whether the display
+         is being turned on or off.  This mode enables the power manager to reduce
+         clocks and disable the touch controller while the display is on.
+         This resource should be set to "true" when a doze component has been specified
+         to maximize power savings but not all devices support it.
+         Refer to power.h for details.
+    -->
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->    
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
+
+    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
+         on the headphone/microphone jack. When false use the older uevent framework. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
@@ -704,6 +754,9 @@
         <item>450</item>
     </array>
 
+    <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
+    <integer name="config_shutdownBatteryTemperature">600</integer>
+
     <!-- Fast brightness animation ramp rate in brightness units per second-->
     <integer translatable="false" name="config_brightness_ramp_rate_fast">180</integer>
     
@@ -730,6 +783,41 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">1</integer>
 
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
+    <!-- List supported color modes. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_ADAPTIVE -->
+    </integer-array>
+
+    <!-- The following two arrays specify which color space to use for display composition when a
+         certain color mode is active.
+         Composition color spaces are defined in android.view.Display.COLOR_MODE_xxx, and color
+         modes are defined in ColorDisplayManager.COLOR_MODE_xxx and
+         ColorDisplayManager.VENDOR_COLOR_MODE_xxx.
+         The color space COLOR_MODE_DEFAULT (0) lets the system select the most appropriate
+         composition color space for currently displayed content. Other values (e.g.,
+         COLOR_MODE_SRGB) override system selection; these other color spaces must be supported by
+         the device for for display composition.
+         If a color mode does not have a corresponding color space specified in this array, the
+         currently set composition color space will not be modified.-->
+    <integer-array name="config_displayCompositionColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL   -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED   -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
+    </integer-array>
+
+    <integer-array name="config_displayCompositionColorSpaces">
+        <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
+        <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
+        <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
+        <item>9</item> <!-- COLOR_MODE_DISPLAY_P3 -->
+    </integer-array>
 
     <!-- User activity timeout: Maximum screen dim duration in milliseconds.
 
@@ -774,9 +862,54 @@
     <!-- Light sensor event rate in milliseconds for automatic brightness control. -->
     <integer name="config_autoBrightnessLightSensorRate">500</integer>
 
-     <!-- This string array should be overridden by the device to present a list of network
-         attributes.  This is used by the connectivity manager to decide which networks can coexist
-         based on the hardware -->
+    <!-- Flag specifying whether VoLTE should be available for carrier: independent of
+         carrier provisioning. If false: hard disabled. If true: then depends on carrier
+         provisioning, availability etc -->    
+    <bool name="config_carrier_volte_available">true</bool>
+
+    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->    
+    <bool name="config_cellBroadcastAppLinks">true</bool>
+
+    <!-- Flag specifying whether VoLTE is available on device -->    
+    <bool name="config_device_volte_available">true</bool>
+
+    <!-- Flag specifying whether VT is available on device -->
+    <bool name="config_device_vt_available">true</bool>
+
+    <!-- Flag specifying whether WFC over IMS is available on device -->
+    <bool name="config_device_wfc_ims_available">true</bool>
+
+    <!-- Is the device capable of hot swapping an ICC Card -->
+    <bool name="config_hotswapCapable">true</bool>
+
+    <!-- Flag indicating if the speed up audio on mt call code should be executed -->
+    <bool name="config_speed_up_audio_on_mt_calls">true</bool>
+
+    <!-- Config determines whether to update phone object when voice registration
+         state changes. Voice radio tech change will always trigger an update of
+         phone object irrespective of this config -->    
+    <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
+
+    <string-array name="config_mobile_tcp_buffers">
+        <item>5gnr:2097152,6291456,16777216,512000,2097152,8388608</item>
+        <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
+        <item>lte_ca:4096,6291456,12582912,4096,1048576,2097152</item>
+        <item>umts:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hspa:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hsupa:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hsdpa:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hspap:4094,87380,1220608,4096,16384,1220608</item>
+        <item>edge:4093,26280,35040,4096,16384,35040</item>
+        <item>gprs:4092,8760,11680,4096,8760,11680</item>
+        <item>evdo:4094,87380,524288,4096,16384,262144</item>
+    </string-array>
+
+    <!-- Boolean indicating if current platform supports BLE peripheral mode -->
+    <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+
+    <!-- Operating volatage for bluetooth controller. 0 by default-->
+    <integer name="config_bluetooth_operating_voltage_mv">3300</integer>
+
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
     <!-- the 5th element "resore-time" indicates the number of milliseconds to delay
@@ -905,11 +1038,11 @@
         <item>evdo:4094,87380,524288,4096,16384,262144</item>
     </string-array>
 
-    <!-- Flag specifying whether VoLTE is available on device -->
-    <bool name="config_device_volte_available">true</bool>
+    <!--  Whether Multiuser UI should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
 
-    <!-- Flag specifying whether VT is available on device -->
-    <bool name="config_device_vt_available">true</bool>
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
 
     <!-- Flag specifying whether WFC over IMS is available on device -->
     <bool name="config_device_wfc_ims_available">true</bool>
@@ -921,13 +1054,11 @@
     <!-- Telephony qualified networks service package name to bind to by default. -->
     <string name="config_qualified_networks_service_package">vendor.qti.iwlan</string>
 
-    <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
-    <bool name="config_dynamic_bind_ims">true</bool>
+    <!-- Height of the status bar in portrait -->
+    <dimen name="status_bar_height_portrait">77px</dimen>
 
-    <!-- Config determines whether to update phone object when voice registration
-         state changes. Voice radio tech change will always trigger an update of
-         phone object irrespective of this config -->
-    <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
+    <!-- Height of the status bar in landscape -->
+    <dimen name="status_bar_height_landscape">28dp</dimen>
 
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
@@ -941,8 +1072,8 @@
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">680</integer>
 
-    <!-- Operating volatage for bluetooth controller. 0 by default-->
-    <integer name="config_bluetooth_operating_voltage_mv">3300</integer>
+    <!-- Whether device has a physical display cutout -->
+    <bool name="config_physicalDisplayCutout">true</bool>
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
