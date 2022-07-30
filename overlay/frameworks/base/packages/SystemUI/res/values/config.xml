@@ -23,14 +23,56 @@
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
 
+    <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
+    <bool name="doze_suspend_display_state_supported">true</bool>
+
     <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
 
+    <!-- FPSInfoService Fps file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
+
+    <!-- Burn-in protection -->
+    <bool name="config_statusBarBurnInProtection">true</bool>
+    <integer name="config_shift_interval">40</integer>
+
+    <!-- Smart replies in notifications: Whether we disable the feature unless the app targets P -->
+    <bool name="config_smart_replies_in_notifications_requires_targeting_p">false</bool>    
+
+    <!-- Allow devices override audio panel location to the left side -->
+    <bool name="config_audioPanelOnLeftSide">false</bool>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone3/temp</string>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">10</integer>
+
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">6</integer>
+    <integer name="config_maxVisibleNotificationIconsOnLock">7</integer>
+
+    <!-- Doze: check proximity sensor before pulsing? -->
+    <bool name="doze_proximity_check_before_pulse">false</bool>
+
     <!-- The radius of the enrollment progress bar, in dp -->
     <integer name="config_udfpsEnrollProgressBar" translatable="false">100</integer>
 
-    <!-- Max visible notification icons -->
-    <integer name="config_maxVisibleNotificationIcons">5</integer>
-    <integer name="config_maxVisibleNotificationIconsWhenDark">5</integer>
+     <!-- If true, enable the advance anti-falsing classifier on the lockscreen. On some devices it
+          does not work well, particularly with noisy touchscreens. Note that disabling it may
+          increase the rate of unintentional unlocks. -->
+    <bool name="config_lockscreenAntiFalsingClassifierEnabled">false</bool>
+
+    <!-- Respect drawable/rounded.xml intrinsic size for multiple radius corner path customization -->
+    <bool name="config_roundedCornerMultipleRadius">true</bool>
+
+    <bool name="config_enableDisplayCutoutProtection">true</bool>
+
+
+    <string name="proximity_sensor_type" translatable="false">android.sensor.proximity</string>
+    <item name="proximity_sensor_threshold" translatable="false" format="float"
+          type="dimen">4.99</item>
+
+    <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">M -219 -0.9  L 0 -0.9  L 200.9 -0.9  C 200.9 -0.9 233 0 219 -0.9  C 132.7 2.8 117.2 5.9 101.5 13.6  C 90.2 19.2 81.3 26.6 60.8 47.3  C 43 65.2 38.4 68.5 24.3 73.5  C 15.9 76.5 14.8 76.6 0 76.6  C -14.8 76.6 -15.9 76.5 -24.3 73.5  C -38.4 68.5 -43 65.2 -60.8 47.3  C -81.3 26.6 -90.2 19.2 -101.5 13.6  C -117.2 5.9 -132.7 2.8 -164.7 1.1  C -200.9 -0.9 -223 0 -219 -0.9  Z</string>
 </resources>
