@@ -355,7 +355,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.0-service.multihal.nicky \
+    android.hardware.sensors@2.0-service.multihal.xt \
     libsensorndkbridge
 
 # Soong namespaces
