@@ -355,7 +355,8 @@ PRODUCT_PACKAGES += \
 # Realme specific packages
 PRODUCT_PACKAGES += \
     RealmeParts \
-    RealmeDoze
+    RealmeDoze \
+    RealmeProximityHelper
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/privapp_whitelist_org.device.Realmeparts.xml:system/etc/permissions/privapp_whitelist_org.device.Realmeparts.xml
