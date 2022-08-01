@@ -247,6 +247,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.recovery.rc \
+    init.RealmeParts.rc \
     init.target.rc \
     ueventd.qcom.rc
 
