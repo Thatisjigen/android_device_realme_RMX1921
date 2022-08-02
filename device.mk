@@ -299,7 +299,10 @@ PRODUCT_PACKAGES += \
     nfc_nci_nxp \
     NfcNci \
     SecureElement \
-    Tag
+    Tag \
+    nqnfcee_access.xml \
+    nqnfcse_access.xml \
+    vendor.nxp.nxpese
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
