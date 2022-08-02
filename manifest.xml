@@ -362,4 +362,119 @@
         <transport>hwbinder</transport>
         <fqname>@3.0::IRTPService/imsrtpservice</fqname>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.neuralnetworks</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::IDevice/qti-default</fqname>
+        <fqname>@1.3::IDevice/qti-dsp</fqname>
+        <fqname>@1.3::IDevice/qti-gpu</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.radio.config</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::IRadioConfig/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.sensors</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ISensors/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>com.qualcomm.qti.ant</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IAntHci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>com.qualcomm.qti.imscmservice</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.2::IImsCmService/qti.ims.connectionmanagerservice</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>com.qualcomm.qti.uceservice</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.2::IUceService/com.qualcomm.qti.uceservice</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.dolby.hardware.dms</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IDms/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.appradio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusAppRadio/oplus_app_slot1</fqname>
+        <fqname>@1.0::IOplusAppRadio/oplus_app_slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.ims</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusImsRadio/oplusimsradio0</fqname>
+        <fqname>@1.0::IOplusImsRadio/oplusimsradio1</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oplus.hardware.radio</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IOplusRadio/oplus_slot1</fqname>
+        <fqname>@1.0::IOplusRadio/oplus_slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.data.factory</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.2::IFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.esepowermanager</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IEsePowerManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.gnss</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::ILocHidlGnss/gnss_vendor</fqname>
+        <fqname>@2.1::ILocHidlGnss/gnss_vendor</fqname>
+        <fqname>@3.0::ILocHidlGnss/gnss_vendor</fqname>
+        <fqname>@4.0::ILocHidlGnss/gnss_vendor</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.bluetooth_sar</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IBluetoothSar/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.btconfigstore</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IBTConfigStore/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.iwlan</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IIWlan/slot1</fqname>
+        <fqname>@1.0::IIWlan/slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.fm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IFmHci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.lpa</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IUimLpa/UimLpa0</fqname>
+        <fqname>@1.1::IUimLpa/UimLpa1</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.ims.callinfo</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.ims.factory</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IImsFactory/default</fqname>
+    </hal>
 </manifest>
