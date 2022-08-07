@@ -110,6 +110,9 @@ persist.vendor.dpmhalservice.enable=1
 # DRM
 drm.service.enabled=true
 
+# Fingerprint
+ro.vendor.fp_type=optical
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -148,6 +151,7 @@ persist.vendor.radio.sib16_support=1
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.telephony.default_network=33,33
 ro.telephony.iwlan_operation_mode=legacy
+vendor.radio.multisim.config=dsds
 
 # RCS
 persist.rcs.supported=0
