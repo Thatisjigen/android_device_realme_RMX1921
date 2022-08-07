@@ -1,14 +1,23 @@
-allow hal_camera_default gpu_device:chr_file rw_file_perms;
+allow hal_camera_default persist_camera_file:file { read open getattr };
+allow hal_camera_default persist_camera_file:dir { search open };
+allow hal_camera_default proc:file rw_file_perms;
+dontaudit hal_camera_default radio_prop:file read;
+get_prop(hal_camera_default, vendor_camera_prop)
 
-allow hal_camera_default remosaic_daemon_service:service_manager find;
+r_dir_file(hal_camera_default, sysfs_net)
 
-allow hal_camera_default sysfs_kgsl:dir search;
-allow hal_camera_default sysfs_kgsl:file r_file_perms;
-
-allow hal_camera_default sysfs_leds:dir r_dir_perms;
-allow hal_camera_default sysfs_leds:file rw_file_perms;
-allow hal_camera_default sysfs_leds:lnk_file read;
-
-allow hal_camera_default sysfs_thermal:file w_file_perms;
-
-r_dir_file(hal_camera_default, persist_camera_file)
+set_prop(hal_camera_default, vendor_camera_prop)
+allow hal_camera_default persist_camera_file:file setattr;
+allow hal_camera_default persist_camera_file:dir write;
+allow hal_camera_default proc_oppoversion:dir search;
+allow hal_camera_default persist_camera_file:dir add_name;
+allow hal_camera_default proc_meminfo:file { read open getattr };
+allow hal_camera_default default_prop:file { map getattr };
+allow hal_camera_default unlabeled:dir { search };
+allow hal_camera_default radio_prop:file { getattr };
+allow hal_camera_default default_prop:file { getattr };
+allow hal_camera_default oppo_debug_prop:file { read open getattr };
+allow hal_camera_default persist_camera_file:file { create write };
+allow hal_camera_default proc_oppoversion:file { read open getattr };
+allow hal_camera_default oppo_fingerprint_prop:file { read open getattr };
+allow hal_camera_default diag_device:chr_file { read write open };

@@ -1,1 +1,9 @@
-type hal_mlipay_hwservice, hwservice_manager_type;
+type nfc_hwservice, hwservice_manager_type;
+allow hwservicemanager init:dir search;
+allow hwservicemanager init:file { open read };
+allow hwservicemanager init:process getattr;
+type dcs_hwservice, hwservice_manager_type;
+type opporadio_hwservice, hwservice_manager_type;
+type hal_dms_hwservice, hwservice_manager_type;
+type hal_mwqemadapter_hwservice, hwservice_manager_type, protected_hwservice;
+type hal_diag_hwservice, hwservice_manager_type;

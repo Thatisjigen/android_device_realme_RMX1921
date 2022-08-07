@@ -1,31 +1,30 @@
-allow hal_power_default input_device:dir r_dir_perms;
-allow hal_power_default input_device:chr_file rw_file_perms;
+typeattribute hal_power_default mlstrustedsubject;
 
-allow hal_power_default sysfs_graphics:dir search;
-allow hal_power_default sysfs_graphics:file r_file_perms;
+allow hal_power_default proc_touchpanel:dir search;
+allow hal_power_default proc_touchpanel:file rw_file_perms;
 
-allow hal_power_default sysfs_rpm:file r_file_perms;
-allow hal_power_default sysfs_system_sleep_stats:file r_file_perms;
+get_prop(hal_power_default, vendor_mpctl_prop);
 
-allow hal_power_default sysfs_touchpanel:dir r_dir_perms;
-allow hal_power_default sysfs_touchpanel:file rw_file_perms;
+allow hal_power_default cgroup:file r_file_perms;
+allow hal_power_default appdomain:process { getsched setsched };
+allow hal_power_default self:capability sys_nice;
+allow hal_power_default system_server:process setsched;
+allow hal_power_default proc:{ file lnk_file } rw_file_perms;
 
-allow hal_power_default debugfs_wlan:dir r_dir_perms;
-allow hal_power_default debugfs_wlan:file r_file_perms;
-
-# To do powerhint on nodes defined in powerhint.json
-allow hal_power_default sysfs_devfreq:dir search;
-allow hal_power_default sysfs_devfreq:file rw_file_perms;
-allow hal_power_default sysfs_kgsl:lnk_file read;
-allow hal_power_default sysfs_kgsl:file rw_file_perms;
-allow hal_power_default sysfs_msm_subsys:dir search;
-allow hal_power_default sysfs_msm_subsys:file rw_file_perms;
+allow hal_power_default { sysfs_devfreq sysfs_kgsl }:dir search;
+allow hal_power_default { sysfs_devfreq sysfs_kgsl }:{ file lnk_file } rw_file_perms;
 allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
-allow hal_power_default device_latency:chr_file rw_file_perms;
-allow hal_power_default cgroup:dir search;
-allow hal_power_default cgroup:file rw_file_perms;
-allow hal_power_default debugfs_sched_features:file rw_file_perms;
-allow hal_power_default proc_sysctl_schedboost:file rw_file_perms;
 
-# To get/set powerhal state property
 set_prop(hal_power_default, vendor_power_prop)
+
+allow hal_power_default proc:file { open };
+allow hal_power_default proc:file { write };
+
+allow hal_power_default sysfs_battery_saver:dir r_dir_perms;
+allow hal_power_default sysfs_battery_saver:file rw_file_perms;
+allow hal_power_default sysfs_idle_state:dir r_dir_perms;
+allow hal_power_default sysfs_idle_state:file rw_file_perms;
+allow hal_power_default device_latency:chr_file { open getattr read ioctl lock write };
+allow hal_power_default self:capability sys_admin;
+allow hal_power_default sysfs_devfreq_state:dir r_dir_perms;
+allow hal_power_default sysfs_devfreq_state:file rw_file_perms;

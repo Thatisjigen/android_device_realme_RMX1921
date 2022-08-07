@@ -1,1 +1,44 @@
-allow init socket_device:sock_file { unlink setattr create };
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hwservicemanager:binder transfer;
+allow init ion_device:chr_file { ioctl open read };
+allow init persist_file:lnk_file read;
+allow init same_process_hal_file:file execute;
+allow init self:socket create;
+allow init socket_device:sock_file { create setattr unlink };
+allow init proc_touchpanel:file setattr;
+allow init sysfs:file setattr;
+allow init sysfs_oppo_display:file rw_file_perms;
+allow init sysfs_oppo_display:file setattr;
+allow init bt_firmware_file:filesystem getattr;
+allow init firmware_file:filesystem getattr;
+allow init vendor_file:file execute;
+allow init oppo_debug_prop:property_service set;
+allow init vendor_data_file:file lock;
+allow init hal_audio_default:binder call;
+allow init platform_app:binder call;
+allow init oppo_debug_prop:file {read open getattr setattr };
+
+# Otg Switch
+allow init sysfs_usb_supply:file setattr;
+allow init sysfs_usb_supply:file rw_file_perms;
+set_prop(init, oppo_debug_prop)
+
+# Netutils
+allow init netutils_wrapper_exec:file { execute read open getattr };
+allow init init:netlink_route_socket { read getattr };
+
+allow init sysfs_battery_supply:file setattr;
+allow init adsprpcd_file:file mounton;
+
+allow init sysfs_dm:dir relabelfrom;
+allow init sysfs_dm:file relabelfrom;
+
+allow init {
+    sysfs_io_sched_tuneable
+}:file { setattr w_file_perms };
+allow init hwservicemanager:binder { call transfer };
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init apex_metadata_file:lnk_file read;
+
+set_prop(init, vendor_power_prop)
+allow init iorapd_data_file:file { getattr };

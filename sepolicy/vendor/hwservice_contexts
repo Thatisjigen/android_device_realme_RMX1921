@@ -1,21 +1,26 @@
-# Fingerprint
-com.fingerprints.extension::IFingerprintEngineering                           u:object_r:hal_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintSensorTest                            u:object_r:hal_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintNavigation                            u:object_r:hal_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintCalibration                           u:object_r:hal_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintSenseTouch                            u:object_r:hal_fingerprint_hwservice:s0
-vendor.goodix.hardware.fingerprintextension::IGoodixBiometricsFingerprint     u:object_r:hal_fingerprint_hwservice:s0
-vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon       u:object_r:hal_fingerprint_hwservice:s0
-vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemonExt    u:object_r:hal_fingerprint_hwservice:s0
-vendor.synaptics.fingerprints.interfaces.extensions::ISensorTest              u:object_r:hal_fingerprint_hwservice:s0
-vendor.synaptics.fingerprints.interfaces.extensions::INavigation              u:object_r:hal_fingerprint_hwservice:s0
-vendor.synaptics.fingerprints.interfaces.extensions::IFpCollection            u:object_r:hal_fingerprint_hwservice:s0
+# Camera
+vendor.oppo.hardware.camera.oppoAlgoProcessService::IOppoAlgoProcessService  u:object_r:hal_camera_hwservice:s0
+vendor.oppo.hardware.camera.oppopostproc::ICameraPostProc                    u:object_r:hal_camera_hwservice:s0
 
-# Mlipay
-vendor.xiaomi.hardware.mlipay::IMlipayService                                 u:object_r:hal_mlipay_hwservice:s0
+# Fingerprint
+vendor.oppo.hardware.biometrics.fingerprint::IBiometricsFingerprint          u:object_r:hal_fingerprint_hwservice:s0
+
+# Dcs
+vendor.oppo.hardware.commondcs::ICommonDcsHalService                         u:object_r:dcs_hwservice:s0             
+
+# Mwqemadapter
+vendor.qti.hardware.mwqemadapter::IMwqemAdapter                         u:object_r:hal_mwqemadapter_hwservice:s0
 
 # NFC
-vendor.nxp.nxpnfc::INxpNfc                                                    u:object_r:hal_nfc_hwservice:s0
+vendor.nxp.nxpnfc::INxpNfc                                      u:object_r:nfc_hwservice:s0
+vendor.nxp.nxpese::INxpEse                                      u:object_r:nfc_hwservice:s0
 
-# Secure element
-vendor.nxp.nxpese::INxpEse                                                    u:object_r:hal_secure_element_hwservice:s0
+# Radio
+vendor.oplus.hardware.appradio::IOplusAppRadio          u:object_r:opporadio_hwservice:s0
+vendor.oplus.hardware.radio::IOplusRadio          u:object_r:opporadio_hwservice:s0
+vendor.oplus.hardware.ims::IOplusImsRadio          u:object_r:opporadio_hwservice:s0
+
+# Dolby
+vendor.dolby.hardware.dms::IDms                                            u:object_r:hal_dms_hwservice:s0
+
+vendor.qti.diaghal::Idiag                                            u:object_r:hal_diag_hwservice:s0

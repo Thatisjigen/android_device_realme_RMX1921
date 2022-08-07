@@ -1,7 +1,5 @@
-type fingerprint_device, dev_type;
+# Goodix device
+type goodix_device, dev_type;
 
-type gps_device, dev_type;
-
-type lirc_device, dev_type;
-
-type ultrasound_device, dev_type;
+# Mdmreason device
+type mdmreason_device, dev_type;

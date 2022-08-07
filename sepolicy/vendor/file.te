@@ -1,35 +1,68 @@
-type audio_socket, file_type;
+# Touchpanel
+type proc_touchpanel, fs_type, proc_type;
 
-type debugfs_sched_features, debugfs_type, fs_type;
+# Oppo Project version
+type proc_oppoversion, fs_type, proc_type;
 
-type debugfs_wlan, debugfs_type, fs_type;
+# Oppo FP
+type proc_oppo_fp, fs_type, proc_type;
+type sysfs_oppo_display, fs_type, sysfs_type;
 
-type fingerprint_data_file, data_file_type, file_type;
+# Camera
+type persist_camera_file, file_type;
 
-type gps_data_file, data_file_type, file_type;
+# Devinfo
+type proc_devinfo, fs_type, proc_type;
 
-type gps_socket, file_type;
+# Audio
+type persist_audio_file, file_type , vendor_persist_type;
+type proc_audio_file, file_type, data_file_type, core_data_file_type;
 
-type persist_audio_file, file_type, vendor_persist_type;
+# FPS
+type sysfs_fps, sysfs_type, fs_type;
 
-type persist_camera_file, file_type, vendor_persist_type;
+# Smart Charging
+type sysfs_scharge, sysfs_type, fs_type;
 
-type proc_sysctl_autogroup, proc_type, fs_type;
+# LED/LCD
+type sysfs_led_file, sysfs_type, fs_type;
+type sysfs_lcd_file, sysfs_type, fs_type;
 
-type proc_sysctl_schedboost, proc_type, fs_type;
+# Power stats
+type sysfs_iio, sysfs_type, fs_type;
 
-type proc_tp, proc_type, fs_type;
+type sysfs_restart, sysfs_type, fs_type;
 
-type sysfs_fingerprint, sysfs_type, fs_type;
+type vulkan_hal, file_type;
 
-type sysfs_gps, sysfs_type, fs_type;
+# Kcal
+type proc_kcal_file, sysfs_type, fs_type;
 
-type sysfs_msm_subsys, sysfs_type, fs_type;
+# GCam
+type public_adsprpcd_file, file_type;
 
-type sysfs_rpm, sysfs_type, fs_type;
+# Audio control
+type sysfs_hgain, sysfs_type, fs_type;
+type sysfs_mgain, sysfs_type, fs_type;
 
-type sysfs_system_sleep_stats, sysfs_type, fs_type;
+# Perf control
+type sysfs_biggovernor, sysfs_type, fs_type;
+type sysfs_littlegovernor, sysfs_type, fs_type;
+type sysfs_aboost, sysfs_type, fs_type;
+type sysfs_aidler, sysfs_type, fs_type;
+type sysfs_aidlerwl, sysfs_type, fs_type;
+type sysfs_aidlerdd, sysfs_type, fs_type;
+type sysfs_aidleriw, sysfs_type, fs_type;
+type sysfs_inputboostfreq, sysfs_type, fs_type;
+type sysfs_boostms, sysfs_type, fs_type;
+type sysfs_iboostms, sysfs_type, fs_type;
+type sysfs_iboostfreq, sysfs_type, fs_type;
 
-type sysfs_touchpanel, sysfs_type, fs_type;
+type proc_vibration_file, sysfs_type, fs_type;
+type sysfs_io_sched_tuneable, fs_type, sysfs_type;
 
-type thermal_data_file, data_file_type, file_type;
+# Kernelspace Batter saver
+type sysfs_battery_saver, fs_type, sysfs_type;
+
+type sysfs_idle_state, fs_type, sysfs_type;
+type sysfs_devfreq_state, fs_type, sysfs_type;

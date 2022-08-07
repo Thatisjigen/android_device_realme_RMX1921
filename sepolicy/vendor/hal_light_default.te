@@ -1,0 +1,2 @@
+allow hal_light_default sysfs:file r_file_perms;
+allow hal_light_default sysfs:file write;

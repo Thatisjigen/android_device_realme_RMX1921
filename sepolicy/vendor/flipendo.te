@@ -1,0 +1,1 @@
+binder_call(flipendo, hal_power_default);
