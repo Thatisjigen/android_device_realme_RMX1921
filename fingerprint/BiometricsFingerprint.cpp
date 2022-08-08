@@ -128,9 +128,7 @@ public:
     }
 
     Return<void> onTouchUp(uint64_t deviceId) {
-        set(AOD_PRESS, OFF);
         set(FP_PRESS_NOTIFY, OFF);
-        set(PS_NEAR, OFF);
         return Void();
     }
 
@@ -314,6 +312,10 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, floa
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    if(!isEnrolling){
+        set(AOD_PRESS, OFF);
+        set(PS_NEAR, OFF);
+    }
     return Void();
 }
 
