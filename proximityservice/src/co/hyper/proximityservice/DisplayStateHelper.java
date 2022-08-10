@@ -38,7 +38,6 @@ public class DisplayStateHelper implements DisplayListener {
      private Context mcontext;
      private InfraredSensor mFakeProximity;
      private FodHelper mFodHelper;
-     private AodProxHelper mAodProxHelper;
      private static final String FOD_STATUS = "/proc/touchpanel/fod_aod_listener";
      private static final String DOZING = "/proc/touchpanel/DOZE_STATUS";
      private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
@@ -48,7 +47,6 @@ public class DisplayStateHelper implements DisplayListener {
          mcontext = context;
          mFakeProximity = new InfraredSensor(context);
          mFodHelper = new FodHelper(context);//register a proximity sensor so that it will poll for pressed status on fod and pulse once pressed to trigger the display "ON" state
-         mAodProxHelper = new AodProxHelper(context);//register amd sensor so that it will pulse aod once extracted from pocket
      }
 
      @Override
@@ -67,7 +65,6 @@ public class DisplayStateHelper implements DisplayListener {
                 // register proximity or fod listener
                 if (FileHelper.getFileValueAsBoolean(FOD_STATUS, false) && RealmeProximityHelperService.isAlwaysOnEnabled(mcontext)){
                    mFodHelper.enable();
-                   mAodProxHelper.enable();
                 }
                 else if (isDefaultDisplayOff(mcontext)) 
                     mFakeProximity.enable();
@@ -96,7 +93,6 @@ public class DisplayStateHelper implements DisplayListener {
 
     public void disableSensors() {
         mFodHelper.disable();
-        mAodProxHelper.disable();
     }
 
     protected static void launchDozePulse(Context context) {
