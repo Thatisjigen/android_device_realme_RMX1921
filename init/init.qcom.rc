@@ -631,6 +631,7 @@ service loc_launcher /system/vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
+    disabled
 
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
