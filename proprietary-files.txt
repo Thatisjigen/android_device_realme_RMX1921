@@ -670,14 +670,19 @@ vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
 # DRM (OEM Crypto API)
+odm/lib/liboemcrypto.so
+odm/lib64/liboemcrypto.so
 vendor/lib64/libcpion.so
 vendor/lib64/libminkdescriptor.so
 vendor/lib64/libtrustedapploader.so
 
-# DRM (Widevine)- from Sargo
-vendor/lib64/libwvhidl.so|c20b93dd8549816d03e977d050d91da694e43482
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|23f5dd5911cf58a86574ec9575c57bb5259eab8d
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|81e132e89eed714416874dc599336508f029866c
+# DRM (Widevine)
+odm/lib/libwvhidl.so
+odm/lib/mediadrm/libwvdrmengine.so
+odm/lib64/libwvhidl.so
+odm/lib64/mediadrm/libwvdrmengine.so
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
+-vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 
 # DSP service
 vendor/bin/dspservice
