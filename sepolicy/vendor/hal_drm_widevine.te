@@ -1,0 +1,1 @@
+allow hal_drm_widevine drm_device:chr_file rw_file_perms;
