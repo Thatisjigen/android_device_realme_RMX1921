@@ -19,7 +19,7 @@ ro.af.client_heap_size_kbyte=7168
 ro.vendor.audio.sdk.fluencetype=none
 ro.vendor.audio.sdk.ssr=false
 vendor.audio.apptype.multirec.enabled=false
-vendor.audio.feature.a2dp_offload.enable=true
+vendor.audio.feature.a2dp_offload.enable=false
 vendor.audio.feature.afe_proxy.enable=true
 vendor.audio.feature.anc_headset.enable=true
 vendor.audio.feature.audiozoom.enable=false
@@ -86,10 +86,15 @@ vendor.audio.dolby.ds2.enabled=false
 vendor.audio.dolby.ds2.hardbypass=false
 
 # Bluetooth
+bt.max.hfpclient.connections=1
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
-persist.bluetooth.a2dp_offload.disabled=false
+persist.bluetooth.a2dp_offload.disabled=true
+persist.vendor.bt.a2dp.mac_whitelist=false
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
+persist.vendor.btsatck.absvolfeature=true
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
+persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=false
@@ -98,7 +103,8 @@ persist.vendor.qcom.bluetooth.scram.enabled=true
 persist.vendor.qcom.bluetooth.soc=cherokee
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.bluetooth.a2dp_offload.supported=true
-ro.vendor.bluetooth.wipower=false
+ro.bluetooth.emb_wp_mode=true
+ro.bluetooth.wipower=true
 
 # Display post-processing
 ro.vendor.display.cabl=2
